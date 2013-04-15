@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>pl.edu.agh.to1.dice.logic.StdGameOutputController</OriginalElement>
+  <nodes>
+    <node x="93.0" y="190.0">pl.edu.agh.to1.dice.logic.StdGameOutputController</node>
+    <node x="-150.0" y="110.0">pl.edu.agh.to1.dice.logic.PlayerIOController</node>
+    <node x="142.5" y="11.0">pl.edu.agh.to1.dice.logic.Game</node>
+    <node x="-158.0" y="188.0">pl.edu.agh.to1.dice.logic.StdPlayerIOController</node>
+    <node x="-0.5" y="10.0">pl.edu.agh.to1.dice.logic.Player</node>
+    <node x="101.0" y="112.0">pl.edu.agh.to1.dice.logic.GameOutputController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdPlayerIOController" target="pl.edu.agh.to1.dice.logic.PlayerIOController">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.GameOutputController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.Game">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.PlayerIOController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.GameOutputController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdGameOutputController" target="pl.edu.agh.to1.dice.logic.GameOutputController">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="79.0" y="128.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

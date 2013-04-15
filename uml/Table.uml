@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>pl.edu.agh.to1.dice.logic.StdTable</OriginalElement>
+  <nodes>
+    <node x="-141.0" y="170.0">pl.edu.agh.to1.dice.logic.StdTable</node>
+    <node x="-133.0" y="92.0">pl.edu.agh.to1.dice.logic.Table</node>
+    <node x="-162.0" y="-64.0">pl.edu.agh.to1.dice.logic.CommandHandler</node>
+    <node x="-175.0" y="14.0">pl.edu.agh.to1.dice.logic.DicedCommandHandler</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pl.edu.agh.to1.dice.logic.Table" target="pl.edu.agh.to1.dice.logic.DicedCommandHandler">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DicedCommandHandler" target="pl.edu.agh.to1.dice.logic.CommandHandler">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdTable" target="pl.edu.agh.to1.dice.logic.Table">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="-103.0" y="67.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

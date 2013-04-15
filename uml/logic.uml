@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>pl.edu.agh.to1.dice.logic</OriginalElement>
+  <nodes>
+    <node x="538.1654411764706" y="312.0">pl.edu.agh.to1.dice.logic.DiceSZCombination</node>
+    <node x="888.452818627451" y="156.0">pl.edu.agh.to1.dice.logic.DiceCombination</node>
+    <node x="1079.8529411764707" y="234.0">pl.edu.agh.to1.dice.logic.DiceLowerCombination</node>
+    <node x="0.0" y="312.0">pl.edu.agh.to1.dice.logic.StdGameOutputController</node>
+    <node x="846.1654411764706" y="312.0">pl.edu.agh.to1.dice.logic.DiceFulCombination</node>
+    <node x="683.1654411764706" y="312.0">pl.edu.agh.to1.dice.logic.DiceStreetCombination</node>
+    <node x="730.702818627451" y="78.0">pl.edu.agh.to1.dice.logic.DicedCommandHandler</node>
+    <node x="297.8946078431373" y="498.0">pl.edu.agh.to1.dice.logic.DiceGame</node>
+    <node x="993.1654411764706" y="312.0">pl.edu.agh.to1.dice.logic.DiceNkaCombination</node>
+    <node x="754.265318627451" y="234.0">pl.edu.agh.to1.dice.logic.DiceJokerCombination</node>
+    <node x="139.25" y="420.0">pl.edu.agh.to1.dice.logic.StdPlayerIOController</node>
+    <node x="176.75367647058823" y="234.0">pl.edu.agh.to1.dice.logic.GameOutputController</node>
+    <node x="366.26531862745105" y="420.0">pl.edu.agh.to1.dice.logic.Player</node>
+    <node x="946.1654411764706" y="420.0">pl.edu.agh.to1.dice.logic.StdTable</node>
+    <node x="392.16544117647067" y="234.0">pl.edu.agh.to1.dice.logic.DiceSet</node>
+    <node x="0.0" y="571.0">pl.edu.agh.to1.dice.logic.CommandResponse</node>
+    <node x="482.1654411764706" y="234.0">pl.edu.agh.to1.dice.logic.Table</node>
+    <node x="178.0" y="312.0">pl.edu.agh.to1.dice.logic.PlayerIOController</node>
+    <node x="667.952818627451" y="0.0">pl.edu.agh.to1.dice.logic.CommandHandler</node>
+    <node x="413.3529411764706" y="312.0">pl.edu.agh.to1.dice.logic.Game</node>
+    <node x="402.66544117647067" y="156.0">pl.edu.agh.to1.dice.logic.Die</node>
+    <node x="1161.3529411764707" y="312.0">pl.edu.agh.to1.dice.logic.DiceGeneralCombination</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pl.edu.agh.to1.dice.logic.Table" target="pl.edu.agh.to1.dice.logic.DicedCommandHandler">
+      <point x="-15.0" y="-14.0" />
+      <point x="497.1654411764706" y="131.0" />
+      <point x="766.702818627451" y="131.0" />
+      <point x="-36.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.DiceSet">
+      <point x="-4.0" y="-14.0" />
+      <point x="394.26531862745105" y="360.0" />
+      <point x="402.8529411764706" y="360.0" />
+      <point x="-23.333333333333314" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceGame" target="pl.edu.agh.to1.dice.logic.Player">
+      <point x="10.125" y="-14.0" />
+      <point x="348.5196078431373" y="468.0" />
+      <point x="398.26531862745105" y="468.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.GameOutputController">
+      <point x="-22.875" y="-14.0" />
+      <point x="420.9779411764706" y="282.0" />
+      <point x="295.08700980392155" y="282.0" />
+      <point x="47.33333333333334" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.Game">
+      <point x="4.0" y="-14.0" />
+      <point x="402.26531862745105" y="370.0" />
+      <point x="420.9779411764706" y="370.0" />
+      <point x="-22.875" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceJokerCombination" target="pl.edu.agh.to1.dice.logic.DiceCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="823.765318627451" y="214.0" />
+      <point x="930.827818627451" y="214.0" />
+      <point x="-14.125" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdPlayerIOController" target="pl.edu.agh.to1.dice.logic.PlayerIOController">
+      <point x="0.0" y="-14.0" />
+      <point x="-30.75" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceStreetCombination" target="pl.edu.agh.to1.dice.logic.DiceJokerCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="754.6654411764706" y="292.0" />
+      <point x="806.390318627451" y="292.0" />
+      <point x="-17.375" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.CommandHandler">
+      <point x="-12.0" y="-14.0" />
+      <point x="386.26531862745105" y="380.0" />
+      <point x="381.66544117647067" y="380.0" />
+      <point x="381.66544117647067" y="53.0" />
+      <point x="697.452818627451" y="53.0" />
+      <point x="-29.5" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdTable" target="pl.edu.agh.to1.dice.logic.DiceFulCombination">
+      <point x="-4.75" y="-14.0" />
+      <point x="979.4154411764706" y="370.0" />
+      <point x="909.6654411764706" y="370.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdTable" target="pl.edu.agh.to1.dice.logic.DiceLowerCombination">
+      <point x="14.25" y="-14.0" />
+      <point x="998.4154411764706" y="380.0" />
+      <point x="1150.8529411764707" y="380.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdTable" target="pl.edu.agh.to1.dice.logic.DiceGeneralCombination">
+      <point x="23.75" y="-14.0" />
+      <point x="1007.9154411764706" y="390.0" />
+      <point x="1198.8529411764707" y="390.0" />
+      <point x="-37.5" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.Table">
+      <point x="22.875" y="-14.0" />
+      <point x="466.7279411764706" y="292.0" />
+      <point x="492.1654411764706" y="292.0" />
+      <point x="-20.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceGame" target="pl.edu.agh.to1.dice.logic.StdGameOutputController">
+      <point x="-30.375" y="-14.0" />
+      <point x="308.0196078431373" y="478.0" />
+      <point x="79.0" y="478.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.PlayerIOController">
+      <point x="-28.0" y="-14.0" />
+      <point x="370.26531862745105" y="400.0" />
+      <point x="270.25" y="400.0" />
+      <point x="30.75" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdGameOutputController" target="pl.edu.agh.to1.dice.logic.GameOutputController">
+      <point x="0.0" y="-14.0" />
+      <point x="79.0" y="292.0" />
+      <point x="200.42034313725492" y="292.0" />
+      <point x="-47.333333333333336" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.Player">
+      <point x="7.625" y="14.0" />
+      <point x="451.4779411764706" y="390.0" />
+      <point x="418.26531862745105" y="390.0" />
+      <point x="20.0" y="-14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceLowerCombination" target="pl.edu.agh.to1.dice.logic.DiceCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="1150.8529411764707" y="214.0" />
+      <point x="959.077818627451" y="214.0" />
+      <point x="14.125" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceCombination" target="pl.edu.agh.to1.dice.logic.DicedCommandHandler">
+      <point x="0.0" y="-14.0" />
+      <point x="944.952818627451" y="131.0" />
+      <point x="838.702818627451" y="131.0" />
+      <point x="36.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceNkaCombination" target="pl.edu.agh.to1.dice.logic.DiceJokerCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="1058.6654411764707" y="282.0" />
+      <point x="875.890318627451" y="282.0" />
+      <point x="52.125" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceGeneralCombination" target="pl.edu.agh.to1.dice.logic.DiceCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="1236.3529411764707" y="204.0" />
+      <point x="987.327818627451" y="204.0" />
+      <point x="42.375" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdTable" target="pl.edu.agh.to1.dice.logic.DiceSZCombination">
+      <point x="-23.75" y="-14.0" />
+      <point x="960.4154411764706" y="390.0" />
+      <point x="600.6654411764706" y="390.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceSZCombination" target="pl.edu.agh.to1.dice.logic.DiceJokerCombination">
+      <point x="2.8421709430404007E-14" y="-14.0" />
+      <point x="600.6654411764707" y="282.0" />
+      <point x="771.640318627451" y="282.0" />
+      <point x="-52.125" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.GameOutputController">
+      <point x="-20.0" y="-14.0" />
+      <point x="378.26531862745105" y="390.0" />
+      <point x="311.5" y="390.0" />
+      <point x="311.5" y="292.0" />
+      <point x="247.75367647058823" y="292.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceFulCombination" target="pl.edu.agh.to1.dice.logic.DiceJokerCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="909.6654411764706" y="292.0" />
+      <point x="841.140318627451" y="292.0" />
+      <point x="17.375" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceGame" target="pl.edu.agh.to1.dice.logic.StdPlayerIOController">
+      <point x="-10.125" y="-14.0" />
+      <point x="328.2696078431373" y="468.0" />
+      <point x="208.75" y="468.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.DiceSet">
+      <point x="7.625" y="-14.0" />
+      <point x="23.333333333333314" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceSet" target="pl.edu.agh.to1.dice.logic.Die">
+      <point x="-17.5" y="-14.0" />
+      <point x="409.66544117647067" y="214.0" />
+      <point x="414.91544117647067" y="214.0" />
+      <point x="-12.25" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdTable" target="pl.edu.agh.to1.dice.logic.DiceStreetCombination">
+      <point x="-14.25" y="-14.0" />
+      <point x="969.9154411764706" y="380.0" />
+      <point x="754.6654411764706" y="380.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Table" target="pl.edu.agh.to1.dice.logic.DiceCombination">
+      <point x="15.0" y="-14.0" />
+      <point x="527.1654411764706" y="204.0" />
+      <point x="902.577818627451" y="204.0" />
+      <point x="-42.375" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.Table">
+      <point x="28.0" y="-14.0" />
+      <point x="426.26531862745105" y="400.0" />
+      <point x="516.6654411764706" y="400.0" />
+      <point x="516.6654411764706" y="292.0" />
+      <point x="512.1654411764706" y="292.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DicedCommandHandler" target="pl.edu.agh.to1.dice.logic.CommandHandler">
+      <point x="0.0" y="-14.0" />
+      <point x="802.702818627451" y="53.0" />
+      <point x="756.452818627451" y="53.0" />
+      <point x="29.5" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdTable" target="pl.edu.agh.to1.dice.logic.DiceNkaCombination">
+      <point x="4.75" y="-14.0" />
+      <point x="988.9154411764706" y="370.0" />
+      <point x="1058.6654411764707" y="370.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.StdTable" target="pl.edu.agh.to1.dice.logic.Table">
+      <point x="-33.25" y="-14.0" />
+      <point x="950.9154411764706" y="400.0" />
+      <point x="527.6654411764706" y="400.0" />
+      <point x="527.6654411764706" y="292.0" />
+      <point x="532.1654411764706" y="292.0" />
+      <point x="20.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceGame" target="pl.edu.agh.to1.dice.logic.Game">
+      <point x="30.375" y="-14.0" />
+      <point x="368.7696078431373" y="478.0" />
+      <point x="466.7279411764706" y="478.0" />
+      <point x="22.875" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9929429429429428" x="454.77997882957817" y="299.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

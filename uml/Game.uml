@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>pl.edu.agh.to1.dice.logic.Game</OriginalElement>
+  <nodes>
+    <node x="-20.5972222222222" y="250.0">pl.edu.agh.to1.dice.logic.DiceCombination</node>
+    <node x="-234.66666666666663" y="13.0">pl.edu.agh.to1.dice.logic.DiceSet</node>
+    <node x="6.9027777777778" y="131.0">pl.edu.agh.to1.dice.logic.Table</node>
+    <node x="159.0" y="-71.5">pl.edu.agh.to1.dice.logic.CommandHandler</node>
+    <node x="-223.59722222222217" y="123.0">pl.edu.agh.to1.dice.logic.Die</node>
+    <node x="-111.79166666666666" y="-81.0">pl.edu.agh.to1.dice.logic.Game</node>
+    <node x="146.0" y="52.5">pl.edu.agh.to1.dice.logic.DicedCommandHandler</node>
+    <node x="4.120370370370381" y="13.0">pl.edu.agh.to1.dice.logic.Player</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Table" target="pl.edu.agh.to1.dice.logic.DicedCommandHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.DiceSet">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceCombination" target="pl.edu.agh.to1.dice.logic.DicedCommandHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.Game">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.DiceSet">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Table" target="pl.edu.agh.to1.dice.logic.DiceCombination">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.CommandHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceSet" target="pl.edu.agh.to1.dice.logic.Die">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Game" target="pl.edu.agh.to1.dice.logic.Table">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.Player" target="pl.edu.agh.to1.dice.logic.Table">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DicedCommandHandler" target="pl.edu.agh.to1.dice.logic.CommandHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="100.5" y="141.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

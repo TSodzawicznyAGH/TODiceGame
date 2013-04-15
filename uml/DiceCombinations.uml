@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>pl.edu.agh.to1.dice.logic.DiceNkaCombination</OriginalElement>
+  <nodes>
+    <node x="461.0" y="312.0">pl.edu.agh.to1.dice.logic.DiceSZCombination</node>
+    <node x="396.00000000000006" y="156.0">pl.edu.agh.to1.dice.logic.DiceCombination</node>
+    <node x="381.50000000000006" y="234.0">pl.edu.agh.to1.dice.logic.DiceLowerCombination</node>
+    <node x="151.00000000000003" y="312.0">pl.edu.agh.to1.dice.logic.DiceFulCombination</node>
+    <node x="393.50000000000006" y="0.0">pl.edu.agh.to1.dice.logic.CommandHandler</node>
+    <node x="298.0" y="312.0">pl.edu.agh.to1.dice.logic.DiceStreetCombination</node>
+    <node x="380.50000000000006" y="78.0">pl.edu.agh.to1.dice.logic.DicedCommandHandler</node>
+    <node x="0.0" y="312.0">pl.edu.agh.to1.dice.logic.DiceNkaCombination</node>
+    <node x="222.50000000000003" y="234.0">pl.edu.agh.to1.dice.logic.DiceJokerCombination</node>
+    <node x="543.5" y="234.0">pl.edu.agh.to1.dice.logic.DiceGeneralCombination</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceFulCombination" target="pl.edu.agh.to1.dice.logic.DiceJokerCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="214.50000000000003" y="292.0" />
+      <point x="274.625" y="292.0" />
+      <point x="-17.375" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceJokerCombination" target="pl.edu.agh.to1.dice.logic.DiceCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="292.0" y="209.0" />
+      <point x="414.83333333333337" y="209.0" />
+      <point x="-37.666666666666664" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceCombination" target="pl.edu.agh.to1.dice.logic.DicedCommandHandler">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceLowerCombination" target="pl.edu.agh.to1.dice.logic.DiceCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="-7.105427357601002E-15" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceStreetCombination" target="pl.edu.agh.to1.dice.logic.DiceJokerCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="369.5" y="292.0" />
+      <point x="309.375" y="292.0" />
+      <point x="17.375" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceNkaCombination" target="pl.edu.agh.to1.dice.logic.DiceJokerCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="65.5" y="282.0" />
+      <point x="239.87500000000003" y="282.0" />
+      <point x="-52.125" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceGeneralCombination" target="pl.edu.agh.to1.dice.logic.DiceCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="618.5" y="209.0" />
+      <point x="490.1666666666667" y="209.0" />
+      <point x="37.66666666666666" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DiceSZCombination" target="pl.edu.agh.to1.dice.logic.DiceJokerCombination">
+      <point x="0.0" y="-14.0" />
+      <point x="523.5" y="282.0" />
+      <point x="344.125" y="282.0" />
+      <point x="52.125" y="14.0" />
+    </edge>
+    <edge source="pl.edu.agh.to1.dice.logic.DicedCommandHandler" target="pl.edu.agh.to1.dice.logic.CommandHandler">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="347.0" y="170.0" />
+  <SelectedNodes>
+    <node>pl.edu.agh.to1.dice.logic.DiceNkaCombination</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
