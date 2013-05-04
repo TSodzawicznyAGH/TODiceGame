@@ -1,17 +1,8 @@
 package pl.edu.agh.to1.dice.logic;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tomek
- * Date: 14.04.13
- * Time: 04:34
- * To change this template use File | Settings | File Templates.
- */
-public class Table implements DicedCommandHandler {
+public class Table extends DicedCommandHandler {
     protected final List<DiceCombination> combinations;
     protected int lastPoints = -1;
 
@@ -37,7 +28,6 @@ public class Table implements DicedCommandHandler {
         return combinations.get(i).toString();
     }
 
-    @Override
     public CommandResponse execute(String cmd_string) {
 
         CommandResponse response = CommandResponse.CMD_UNKNOWN;
@@ -51,7 +41,7 @@ public class Table implements DicedCommandHandler {
     }
 
     @Override
-    public CommandResponse execute(String cmd_string, DiceSet diceSet) {
+    public CommandResponse doExecute(String cmd_string, DiceSet diceSet) {
         CommandResponse response = CommandResponse.CMD_UNKNOWN;
         for (DiceCombination c: combinations) {
             response = c.execute(cmd_string, diceSet);

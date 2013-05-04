@@ -4,13 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tomek
- * Date: 14.04.13
- * Time: 20:12
- * To change this template use File | Settings | File Templates.
- */
 public class StdTable extends Table {
     private final DiceGeneralCombination jokerChecker;
 
@@ -20,7 +13,7 @@ public class StdTable extends Table {
     }
 
     @Override
-    public CommandResponse execute(String cmd_string, DiceSet diceSet) {
+    public CommandResponse doExecute(String cmd_string, DiceSet diceSet) {
         CommandResponse response = CommandResponse.CMD_UNKNOWN;
         int jokerBonus = 100;
 
@@ -42,7 +35,7 @@ public class StdTable extends Table {
             }
         }
         else {
-            response = super.execute(cmd_string, diceSet);
+            response = super.doExecute(cmd_string, diceSet);
         }
         return response;
     }

@@ -1,12 +1,19 @@
 package pl.edu.agh.to1.dice.logic;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tomek
- * Date: 14.04.13
- * Time: 12:55
- * To change this template use File | Settings | File Templates.
- */
-public interface DicedCommandHandler extends CommandHandler {
-    public CommandResponse execute(String cmd_string, DiceSet diceSet);
+public abstract class DicedCommandHandler implements CommandHandler {
+    @Override
+    public CommandResponse execute(String cmd_string, Object... args) {
+        if (args.length == 1) {
+            DiceSet diceSet;
+            try {
+                diceSet = (DiceSet) args[0];
+            }
+            catch (ClassCastException e) {
+                throw new IllegalArgumentException("DiceSet expected", e);
+            }
+            return doExecute(cmd_string, diceSet);
+        }
+        return CommandResponse.CMD_UNKNOWN;
+    }
+    public abstract CommandResponse doExecute(String cmd_string, DiceSet diceSet);
 }

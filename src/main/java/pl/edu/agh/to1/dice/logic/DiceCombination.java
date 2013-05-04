@@ -1,13 +1,6 @@
 package pl.edu.agh.to1.dice.logic;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tomek
- * Date: 14.04.13
- * Time: 13:02
- * To change this template use File | Settings | File Templates.
- */
-public abstract class DiceCombination implements DicedCommandHandler {
+public abstract class DiceCombination extends DicedCommandHandler {
     protected int points = -1;
     protected final String cmd_string;
 
@@ -27,7 +20,6 @@ public abstract class DiceCombination implements DicedCommandHandler {
         this.points = points;
     }
 
-    @Override
     public CommandResponse execute(String cmd_string) {
         return (cmd_string.equals(this.cmd_string)) ? CommandResponse.CMD_FAILED : CommandResponse.CMD_UNKNOWN;
     }
@@ -35,7 +27,7 @@ public abstract class DiceCombination implements DicedCommandHandler {
     public abstract int check(DiceSet diceSet);
 
     @Override
-    public CommandResponse execute(String cmd_string, DiceSet diceSet) {
+    public CommandResponse doExecute(String cmd_string, DiceSet diceSet) {
         CommandResponse response = CommandResponse.CMD_UNKNOWN;
         if (cmd_string.equals(this.cmd_string)) {
             if (!isSet()) {

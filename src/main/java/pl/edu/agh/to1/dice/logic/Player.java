@@ -1,17 +1,8 @@
 package pl.edu.agh.to1.dice.logic;
 
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression;
-
 import java.util.regex.PatternSyntaxException;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tomek
- * Date: 14.04.13
- * Time: 04:34
- * To change this template use File | Settings | File Templates.
- */
 public class Player implements CommandHandler{
     private Game game;
     private GameOutputController gameOutputController;
@@ -119,7 +110,7 @@ public class Player implements CommandHandler{
     }
 
     @Override
-    public CommandResponse execute(String cmd_string) {
+    public CommandResponse execute(String cmd_string, Object... args) {
         CommandResponse response = CommandResponse.CMD_OK;
         if (cmd_string.equals("x")) {
             terminate = true;
@@ -159,6 +150,6 @@ public class Player implements CommandHandler{
 
     @Override
     public String toString() {
-        return new String(name);
+        return name;
     }
 }
