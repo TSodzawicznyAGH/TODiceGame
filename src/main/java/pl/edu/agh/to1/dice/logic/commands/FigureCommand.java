@@ -1,14 +1,21 @@
 package pl.edu.agh.to1.dice.logic.commands;
 
-public enum FigureCommand implements Command {
-    EXAMPLE("ex");
+import pl.edu.agh.to1.dice.logic.DiceSet;
 
-    private String commandString = null;
-    private FigureCommand(String commandString) {
-        this.commandString = commandString;
+public class FigureCommand implements Command {
+    private String figureName;
+    private DiceSet diceSet;
+
+    private FigureCommand(String figureShortName) {
+        this.figureName = figureShortName;
     }
-    @Override
-    public String toString() {
-        return commandString;
+    public DiceSet getDiceSet() {
+        return diceSet;
+    }
+    public void setDiceSet(DiceSet diceSet) {
+        this.diceSet = diceSet;
+    }
+    public String getFigureName() {
+        return figureName;
     }
 }
