@@ -34,7 +34,7 @@ public class GameStarter {
                        BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
                        s = bReader.readLine();
                    } catch (IOException e) {return;}
-                   players = Integer.getInteger(s);
+                   players = Integer.parseInt(s);
                    if(players > game.getMaxPlayers() || players < game.getMinPlayers()){
                        System.out.println("Liczba graczy musi byc z przedzialu od " + game.getMinPlayers() + " do " + game.getMaxPlayers());
                    }
@@ -48,6 +48,7 @@ public class GameStarter {
                         name = bReader.readLine();
                     } catch (IOException e) {return;}
                     Player player = new Player(name);
+                   game_players.add(player);
                     System.out.print("Czy chcesz aby ten gracz był botem?[y/n]");
                     String ifbot = new String("y");
                     try {
@@ -64,18 +65,19 @@ public class GameStarter {
                }
 
                Set<Player> winners = game.doPlay();
-               if(winners.equals(null)){
+               if(winners == null){
                    return;
                }
                else if(winners.isEmpty()){
                    return;
                }
                else if(winners.size() > 1){
+                   System.out.println("tu");
                     PlayerMap map = new PlayerMap();
                     for(Player p : game_players){
                         if(winners.contains(p)){
                             Player tmp = map.getPlayer(p.getName());
-                            if(tmp.equals(null)){
+                            if(tmp == null){
                                 tmp = p;
                             }
                             tmp.addDraw();
@@ -83,7 +85,7 @@ public class GameStarter {
                         }
                         else{
                             Player tmp = map.getPlayer(p.getName());
-                            if(tmp.equals(null)){
+                            if(tmp == null){
                                 tmp = p;
                             }
                             tmp.addLoss();
@@ -92,11 +94,12 @@ public class GameStarter {
                     }
                }
                else{
+                   System.out.println("tam");
                    PlayerMap map = new PlayerMap();
                    for(Player p : game_players){
                        if(winners.contains(p)){
                            Player tmp = map.getPlayer(p.getName());
-                           if(tmp.equals(null)){
+                           if(tmp == null){
                                tmp = p;
                            }
                            tmp.addWin();
@@ -104,7 +107,7 @@ public class GameStarter {
                        }
                        else{
                            Player tmp = map.getPlayer(p.getName());
-                           if(tmp.equals(null)){
+                           if(tmp == null){
                                tmp = p;
                            }
                            tmp.addLoss();

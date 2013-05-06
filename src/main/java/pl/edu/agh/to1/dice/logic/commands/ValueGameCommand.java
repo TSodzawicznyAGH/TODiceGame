@@ -1,10 +1,10 @@
 package pl.edu.agh.to1.dice.logic.commands;
 
-public enum GameCommand implements Command {
-    TERMINATE("x"), REROLL("r"), HELP("h");
+public enum ValueGameCommand implements Command {
+    EXAMPLE("ex");
 
     private String commandString = null;
-    private GameCommand(String commandString) {
+    private ValueGameCommand(String commandString) {
         this.commandString = commandString;
     }
     @Override

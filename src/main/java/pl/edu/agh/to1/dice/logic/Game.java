@@ -85,7 +85,9 @@ public class Game {
                 updateGameControllers();
             }
         }
-        return null; //TODO
+        Set<Player> winners = new HashSet<Player>();
+        winners.add(playerOrder.get(0));
+        return winners;
     }
 
     //returns null if cannot start game, empty set if game was terminated, set of winners otherwise
