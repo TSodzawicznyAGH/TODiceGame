@@ -34,7 +34,7 @@ public class PlayerMap{
     //GET
     public Player getPlayer(String key){
         Object result = null;
-        if( check(key) == false ){System.out.print("Brak pliku o podanym kluczu! ");}
+        if( check(key) == false ){}
         else{
             String adres = new String(folder + "/" + key);
             try{

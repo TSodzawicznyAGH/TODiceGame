@@ -19,13 +19,24 @@ import pl.edu.agh.to1.dice.logic.io.StdIOController;
 public class GameStarter {
 
     int players = 0;
-    Game game = new Game();
     StdGameOutputController gameOutputController = new StdGameOutputController();
     IOController ioController = new StdIOController();
     Set<Player> game_players = new HashSet<Player>();
 
     public void play(){
                System.out.println("Dzień dobry!");
+               System.out.print("Chcesz zagrac w zwykle[z] czy potrojne[t] kosci?");
+                String kosci = new String("z");
+                try {
+                    BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
+                    kosci = bReader.readLine();
+                } catch (IOException e) {return;}
+                if(kosci.equals("t")){
+                    Game game = new Game();//potrojne kosci
+                }
+                else{
+                    Game game = new Game();//zwykle kosci
+                }
 
                do{
                    System.out.print("Podaj liczbę graczy: ");
