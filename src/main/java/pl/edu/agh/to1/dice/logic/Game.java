@@ -1,5 +1,8 @@
 package pl.edu.agh.to1.dice.logic;
 
+import pl.edu.agh.to1.dice.logic.commands.Command;
+import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
+import pl.edu.agh.to1.dice.logic.commands.CommandResponses;
 import pl.edu.agh.to1.dice.logic.io.GameOutputController;
 import pl.edu.agh.to1.dice.logic.io.IOController;
 
@@ -32,20 +35,47 @@ public class Game {
         return playerOrder.size();
     }
 
+    private void initIOControllers() {
+        Set<Command> allCommands = gameState.getTable().getAllCommands();
+        for (IOController ioController : ioControllerMap.values()) {
+            ioController.init(allCommands);
+        }
+        for (Player player: gameOutputControllerMap.keySet()) {
+            gameOutputControllerMap.get(player).init(player, gameState);
+        }
+    }
+
+    private void updateGameControllers() {
+        for (Player player: gameOutputControllerMap.keySet()) {
+            gameOutputControllerMap.get(player).update(gameState);
+        }
+    }
+
     private void playerMove(Player player) {
         boolean ready = false;
         IOController ioController = ioControllerMap.get(player);
         Table table = gameState.getTables().get(player);
         DiceSet diceSet = gameState.getDiceSet();
+        Set<Command> availableCommands = table.getAvailableCommands();
+        int rerolls = 0;
         while (!ready) {
-            //TODO
+            // TODO - rerolls, game handler
+            Command command = ioController.read(availableCommands);
+            CommandResponse response = CommandResponses.COMMAND_UNKNOWN;
+            if (table.canHandle(command)) {
+                response = table.doHandle(command);
+            }
+            ioController.callback(response);
         }
     }
+
     private Set<Player> play() {
         running = true;
-        for (int round = 0; round < gameState.getTableSize(); ++round) {
+        initIOControllers();
+        for (int round = 0; running && (round < gameState.getTableSize()); ++round) {
             for (Player player : playerOrder) {
                 playerMove(player);
+                updateGameControllers();
             }
         }
         return null; //TODO
@@ -61,5 +91,8 @@ public class Game {
 
     protected GameState getGameState() {
         return new GameState();
+    }
+    public int getMaxRerolls() {
+        return 2;
     }
 }

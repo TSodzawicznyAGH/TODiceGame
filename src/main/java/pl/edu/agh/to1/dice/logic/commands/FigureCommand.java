@@ -18,4 +18,7 @@ public class FigureCommand implements Command {
     public String getFigureName() {
         return figureName;
     }
+    public String toString() {
+        return figureName;
+    }
 }

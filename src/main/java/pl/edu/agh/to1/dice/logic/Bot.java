@@ -35,7 +35,7 @@ public class Bot implements GameOutputController, IOController{
 		}
 		return command;
 	}
-	public void callback(Command command) {
+	public void callback(CommandResponse response) {
 		// TODO Auto-generated method stub		
 	}
 
