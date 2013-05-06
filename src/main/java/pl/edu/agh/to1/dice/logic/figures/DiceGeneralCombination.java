@@ -5,7 +5,7 @@ import pl.edu.agh.to1.dice.logic.DiceSet;
 
 public class DiceGeneralCombination extends DiceCombination {
 
-    protected DiceGeneralCombination() {
+    public DiceGeneralCombination() {
         super("g");
     }
 

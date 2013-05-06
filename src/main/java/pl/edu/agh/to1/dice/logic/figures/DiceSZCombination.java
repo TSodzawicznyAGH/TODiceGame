@@ -1,9 +1,10 @@
 package pl.edu.agh.to1.dice.logic.figures;
 
 import pl.edu.agh.to1.dice.logic.DiceSet;
+import pl.edu.agh.to1.dice.logic.commands.Command;
 
 public class DiceSZCombination extends DiceJokerCombination {
-    protected DiceSZCombination() {
+    public DiceSZCombination() {
         super("sz");
     }
 
@@ -17,7 +18,12 @@ public class DiceSZCombination extends DiceJokerCombination {
     }
 
     @Override
-    public void joker(DiceSet diceSet, int jokerBonus) {
-        points = check(diceSet) + jokerBonus;
+    public void joker(Command command, int jokerBonus) {
+        points = jokerBonus;
+        DiceSet diceSet = parseCommand(command);
+
+        if (diceSet != null) {
+            points += check(diceSet);
+        }
     }
 }

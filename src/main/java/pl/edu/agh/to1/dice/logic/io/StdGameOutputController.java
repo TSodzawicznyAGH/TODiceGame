@@ -12,7 +12,7 @@ import java.util.Set;
 public class StdGameOutputController implements GameOutputController {
     @Override
     public void init(Player player, GameState initialState) {
-        System.out.format("Hello %s!", player.getName());
+        System.out.format("Hello %s!\n", player.getName());
         update(initialState);
     }
 
@@ -40,6 +40,7 @@ public class StdGameOutputController implements GameOutputController {
                 System.out.format("l(%d) ", diceSet.getValue(i));
             }
         }
+        System.out.println();
     }
 
     @Override

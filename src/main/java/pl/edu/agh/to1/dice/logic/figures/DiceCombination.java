@@ -7,7 +7,7 @@ public abstract class DiceCombination implements CommandHandler {
     protected int points = -1;
     protected final String figureName;
 
-    private DiceSet parseCommand(Command command) {
+    protected DiceSet parseCommand(Command command) {
         FigureCommand figureCommand = null;
         try {
             figureCommand = (FigureCommand) command;

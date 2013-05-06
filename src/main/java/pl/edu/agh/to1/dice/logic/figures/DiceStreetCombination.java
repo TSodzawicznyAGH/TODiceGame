@@ -1,6 +1,7 @@
 package pl.edu.agh.to1.dice.logic.figures;
 
 import pl.edu.agh.to1.dice.logic.DiceSet;
+import pl.edu.agh.to1.dice.logic.commands.Command;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,7 +9,7 @@ import java.util.Set;
 public class DiceStreetCombination extends DiceJokerCombination {
     private final int n;
     private final int reward;
-    protected DiceStreetCombination(String cmd_string, int n, int reward) {
+    public DiceStreetCombination(String cmd_string, int n, int reward) {
         super(cmd_string);
         this.n = n;
         this.reward = reward;
@@ -41,7 +42,7 @@ public class DiceStreetCombination extends DiceJokerCombination {
     }
 
     @Override
-    public void joker(DiceSet diceSet, int jokerBonus) {
+    public void joker(Command command, int jokerBonus) {
         points = reward + jokerBonus;
     }
 }

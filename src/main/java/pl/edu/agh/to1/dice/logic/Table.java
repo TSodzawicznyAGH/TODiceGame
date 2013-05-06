@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Table implements CommandHandler {
-    private final List<DiceCombination> combinations;
+    protected final List<DiceCombination> combinations;
 
     public Table(List<DiceCombination> combinations) {
         this.combinations = combinations;
@@ -60,8 +60,8 @@ public class Table implements CommandHandler {
         return combinations.get(i).toString();
     }
 
-    private CommandHandler getHandler(Command command) {
-        CommandHandler handler = null;
+    protected DiceCombination getDiceCombination(Command command) {
+        DiceCombination handler = null;
         for (DiceCombination diceCombination : combinations) {
             if (diceCombination.canHandle(command)) {
                 handler = diceCombination;
@@ -73,12 +73,13 @@ public class Table implements CommandHandler {
 
     @Override
     public boolean canHandle(Command command) {
-        return (getHandler(command) != null);
+
+        return (getDiceCombination(command) != null);
     }
 
     @Override
     public CommandResponse testHandle(Command command) {
-        CommandHandler handler = getHandler(command);
+        CommandHandler handler = getDiceCombination(command);
         if (handler != null) {
             return handler.testHandle(command);
         }
@@ -87,7 +88,7 @@ public class Table implements CommandHandler {
 
     @Override
     public CommandResponse doHandle(Command command) {
-        CommandHandler handler = getHandler(command);
+        CommandHandler handler = getDiceCombination(command);
         if (handler != null) {
             return handler.doHandle(command);
         }

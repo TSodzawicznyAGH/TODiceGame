@@ -1,13 +1,14 @@
 package pl.edu.agh.to1.dice.logic.figures;
 
 import pl.edu.agh.to1.dice.logic.DiceSet;
+import pl.edu.agh.to1.dice.logic.commands.Command;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class DiceFulCombination extends DiceJokerCombination {
 
-    protected DiceFulCombination() {
+    public DiceFulCombination() {
         super("ful");
     }
 
@@ -39,7 +40,7 @@ public class DiceFulCombination extends DiceJokerCombination {
     }
 
     @Override
-    public void joker(DiceSet diceSet, int jokerBonus) {
+    public void joker(Command command, int jokerBonus) {
         points = 25 + jokerBonus;
     }
 }

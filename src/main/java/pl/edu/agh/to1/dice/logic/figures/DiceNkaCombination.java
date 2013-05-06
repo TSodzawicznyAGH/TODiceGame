@@ -1,6 +1,7 @@
 package pl.edu.agh.to1.dice.logic.figures;
 
 import pl.edu.agh.to1.dice.logic.DiceSet;
+import pl.edu.agh.to1.dice.logic.commands.Command;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,10 +40,13 @@ public class DiceNkaCombination extends DiceJokerCombination {
     }
 
     @Override
-    public void joker(DiceSet diceSet, int jokerBonus) {
+    public void joker(Command command, int jokerBonus) {
+        DiceSet diceSet = parseCommand(command);
         points = 0;
-        for (int i = 0; i < diceSet.SIZE; ++i) {
-            points += diceSet.getValue(i);
+        if (diceSet != null) {
+            for (int i = 0; i < diceSet.SIZE; ++i) {
+                points += diceSet.getValue(i);
+            }
         }
         points += jokerBonus;
     }

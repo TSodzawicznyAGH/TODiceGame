@@ -3,6 +3,7 @@ package pl.edu.agh.to1.dice.logic;
 import pl.edu.agh.to1.dice.logic.commands.Command;
 import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
 import pl.edu.agh.to1.dice.logic.commands.CommandResponses;
+import pl.edu.agh.to1.dice.logic.commands.FigureCommand;
 import pl.edu.agh.to1.dice.logic.io.GameOutputController;
 import pl.edu.agh.to1.dice.logic.io.IOController;
 
@@ -61,9 +62,15 @@ public class Game {
         while (!ready) {
             // TODO - rerolls, game handler
             Command command = ioController.read(availableCommands);
+            try {
+                ((FigureCommand) command).setDiceSet(gameState.getDiceSet());
+            }
+            catch (ClassCastException e) { /* nothing happened */ }
+
             CommandResponse response = CommandResponses.COMMAND_UNKNOWN;
             if (table.canHandle(command)) {
                 response = table.doHandle(command);
+                ready = true;
             }
             ioController.callback(response);
         }

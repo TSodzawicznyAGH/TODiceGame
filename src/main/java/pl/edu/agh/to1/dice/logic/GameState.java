@@ -23,6 +23,6 @@ public class GameState {
         return 5;
     }
     protected Table getTable() {
-        return null;
+        return StdTable.getTable();
     }
 }

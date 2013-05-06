@@ -2,6 +2,8 @@ package pl.edu.agh.to1.dice.logic.io;
 
 import pl.edu.agh.to1.dice.logic.commands.Command;
 import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
+import pl.edu.agh.to1.dice.logic.commands.FigureCommand;
+import pl.edu.agh.to1.dice.logic.commands.ValueCommandResponse;
 
 import javax.annotation.processing.SupportedSourceVersion;
 import java.io.BufferedReader;
@@ -47,7 +49,13 @@ public class StdIOController implements IOController {
 
     @Override
     public void callback(CommandResponse response) {
-        System.out.print("Some error occured, retry...");
+        try {
+            ValueCommandResponse<Integer> valueCommandResponse = (ValueCommandResponse<Integer>) response;
+            System.out.format("%d\n", valueCommandResponse.getValue());
+        }
+        catch (ClassCastException e) {
+            System.out.print("Some error occured, retry...");
+        }
     }
 
     @Override

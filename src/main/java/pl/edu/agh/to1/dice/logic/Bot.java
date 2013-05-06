@@ -3,6 +3,7 @@ package pl.edu.agh.to1.dice.logic;
 import java.util.Set;
 import pl.edu.agh.to1.dice.logic.commands.Command;
 import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
+import pl.edu.agh.to1.dice.logic.commands.FigureCommand;
 import pl.edu.agh.to1.dice.logic.commands.ValueCommandResponse;
 import pl.edu.agh.to1.dice.logic.io.GameOutputController;
 import pl.edu.agh.to1.dice.logic.io.IOController;
@@ -26,12 +27,18 @@ public class Bot implements GameOutputController, IOController{
 		ValueCommandResponse<Integer> max,tmp;
 		max = new ValueCommandResponse<Integer>(-1);
 		for(Command com: availableCommands){
-			tmp = (ValueCommandResponse<Integer>) table.testHandle(com); 
-		//	tmp = table.testHandle(com); 
-			if( tmp.getValue() > max.getValue()){
-				max = tmp;
-				command = com;
-			}			
+            try {
+                FigureCommand figureCommand = (FigureCommand) com;
+
+                figureCommand.setDiceSet(diceSet);
+			    tmp = (ValueCommandResponse<Integer>) table.testHandle(figureCommand);
+    		//	tmp = table.testHandle(com);
+	    		if( tmp.getValue() > max.getValue()){
+		    		max = tmp;
+			    	command = com;
+    			}
+            }
+            catch (ClassCastException e) { /* nothing happened */ }
 		}
 		return command;
 	}
