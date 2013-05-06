@@ -33,7 +33,6 @@ public class Bot implements GameOutputController, IOController{
 				command = com;
 			}			
 		}
-		table.doHandle(command); // chyba b³edne jest to ale to zale¿y od koncepcji kto zapisuje wartoœc do tablicy
 		return command;
 	}
 	public void callback(Command command) {
