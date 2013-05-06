@@ -10,6 +10,7 @@ public interface GameOutputController {
     //inicjalizacja, podany player, z ktorym zwiazany jest ten kontroler oraz stan gry
     public void init(Player player, GameState initialState);
     //nowy stan gry
+    
     public void update(GameState newState);
     public void finish(Set<Player> winners);
     public void terminate();
