@@ -38,7 +38,7 @@ public class PlayerMap{
         else{
             String adres = new String(folder + "/" + key);
             try{
-                FileInputStream fis = new FileInputStream(adres); //pobieramy plik o danym kluczu
+                FileInputStream fis = new FileInputStream(adres); //pobieramy plik o danym  kluczu
                 ObjectInputStream ois = new ObjectInputStream(fis);
                 result = ois.readObject(); //odczytujemy obiekt
                 ois.close();

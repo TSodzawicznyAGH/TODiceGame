@@ -22,6 +22,7 @@ public class GameStarter {
     StdGameOutputController gameOutputController = new StdGameOutputController();
     IOController ioController = new StdIOController();
     Set<Player> game_players = new HashSet<Player>();
+    Game game;
 
     public void play(){
                System.out.println("Dzień dobry!");
@@ -32,10 +33,10 @@ public class GameStarter {
                     kosci = bReader.readLine();
                 } catch (IOException e) {return;}
                 if(kosci.equals("t")){
-                    Game game = new Game();//potrojne kosci
+                    game = new Game();//potrojne kosci
                 }
                 else{
-                    Game game = new Game();//zwykle kosci
+                    game = new Game();//zwykle kosci
                 }
 
                do{
