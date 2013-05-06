@@ -2,12 +2,10 @@ package pl.edu.agh.to1.dice.logic;
 
 public class DiceSet {
     public final int SIZE;
-    public final int MAX_REROLLS;
     private Die[] dice;
 
-    public DiceSet(int size, int maxRerolls) {
+    public DiceSet(int size) {
         SIZE = size;
-        MAX_REROLLS = maxRerolls;
         dice = new Die[size];
         for (int i = 0; i < size; ++i) {
             dice[i] = getDie();

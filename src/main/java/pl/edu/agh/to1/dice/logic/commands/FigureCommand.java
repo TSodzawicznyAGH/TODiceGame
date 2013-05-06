@@ -6,7 +6,7 @@ public class FigureCommand implements Command {
     private String figureName;
     private DiceSet diceSet;
 
-    private FigureCommand(String figureShortName) {
+    public FigureCommand(String figureShortName) {
         this.figureName = figureShortName;
     }
     public DiceSet getDiceSet() {

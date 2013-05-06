@@ -39,6 +39,10 @@ public abstract class DiceCombination implements CommandHandler {
 
     public abstract int check(DiceSet diceSet);
 
+    public String getName() {
+        return figureName;
+    }
+
     public boolean canHandle(Command command) {
         return (parseCommand(command) != null);
     }
@@ -46,7 +50,7 @@ public abstract class DiceCombination implements CommandHandler {
     public CommandResponse testHandle(Command command) {
         DiceSet diceSet = parseCommand(command);
         if (diceSet == null) {
-            return ComandResponses.COMMAND_UNKNOWN;
+            return CommandResponses.COMMAND_UNKNOWN;
         }
         if (isSet()) {
             return new ValueCommandResponse<Integer>(-1);

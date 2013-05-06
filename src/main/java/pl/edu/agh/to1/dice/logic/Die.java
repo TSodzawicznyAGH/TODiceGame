@@ -11,6 +11,7 @@ public class Die {
 
     public Die() {
         DICE_MAX = getDieMax();
+        roll();
     }
 
     public int getValue() {
