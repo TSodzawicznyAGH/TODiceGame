@@ -29,7 +29,6 @@ public class DiceStreetCombination extends DiceJokerCombination {
 
             for (int j = i; j < i + n; ++j) {
                 if (!vals.contains(j)) {
-                    System.out.format("%d %d %d - %s\n", i, j, n, "false");
                     points = 0;
                     break;
                 }

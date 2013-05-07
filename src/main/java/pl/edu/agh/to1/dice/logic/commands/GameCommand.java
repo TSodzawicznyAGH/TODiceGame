@@ -11,4 +11,9 @@ public enum GameCommand implements Command {
     public String toString() {
         return commandString;
     }
+
+    @Override
+    public String getCommandString() {
+        return commandString;
+    }
 }

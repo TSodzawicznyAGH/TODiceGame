@@ -51,7 +51,6 @@ public class PlayerMap{
 
     //PUT
     public void setPlayer(Player player){
-        System.out.println("tak");
         String name = player.getName();
         String nazwa_pliku = folder + "/" + name;
         File file = new File(nazwa_pliku);

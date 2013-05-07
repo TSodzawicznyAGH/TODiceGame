@@ -9,13 +9,6 @@ import pl.edu.agh.to1.dice.logic.io.IOController;
 import pl.edu.agh.to1.dice.logic.io.StdGameOutputController;
 import pl.edu.agh.to1.dice.logic.io.StdIOController;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Johnny
- * Date: 07.05.13
- * Time: 00:03
- * To change this template use File | Settings | File Templates.
- */
 public class GameStarter {
 
     int players = 0;
@@ -25,6 +18,8 @@ public class GameStarter {
     Game game;
 
     public void play(){
+            PlayerMap map = new PlayerMap();
+
                System.out.println("Dzień dobry!");
                System.out.print("Chcesz zagrac w zwykle[z] czy potrojne[t] kosci?");
                 String kosci = new String("z");
@@ -33,10 +28,11 @@ public class GameStarter {
                     kosci = bReader.readLine();
                 } catch (IOException e) {return;}
                 if(kosci.equals("t")){
-                    game = new Game();//potrojne kosci
+                    game = GameFactory.getTriGame();
                 }
                 else{
-                    game = new Game();//zwykle kosci
+                    throw new UnsupportedOperationException();
+                    //game = GameFactory.getStdGame(); //cos nie dziala
                 }
 
                do{
@@ -75,19 +71,44 @@ public class GameStarter {
                         game.addPlayer(player, ioController, gameOutputController);
                     }
                }
+                for (Player player : game_players) {
+                    Player tmp = map.getPlayer(player.getName());
+                    if(tmp != null){
+                        player = tmp;
+                    }
+                    System.out.format("Gracz %s: %d wygranych, %d remisow, %d przegranych\n",
+                            player.getName(), player.getWins(), player.getDraws(), player.getLosses());
+                    map.setPlayer(player);
+                }
+
+                System.out.println();
+                System.out.println("Wcisnij <Enter>, zeby rozpaczac gre");
+                try {
+                    BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
+                    bReader.readLine();
+                } catch (IOException e) {return;}
+
+                System.out.println();
 
                Set<Player> winners = game.doPlay();
+
+                System.out.println();
+
                if(winners == null){
+                   System.out.println("Wystapil blad - nie mozna uruchomic gry");
                    return;
                }
                else if(winners.isEmpty()){
+                   System.out.println("Gra przerwana.");
                    return;
                }
                else if(winners.size() > 1){
-                   System.out.println("tu");
-                    PlayerMap map = new PlayerMap();
+                   System.out.println("Zremisowali:");
+
                     for(Player p : game_players){
                         if(winners.contains(p)){
+                            System.out.println(p.getName());
+
                             Player tmp = map.getPlayer(p.getName());
                             if(tmp == null){
                                 tmp = p;
@@ -106,10 +127,11 @@ public class GameStarter {
                     }
                }
                else{
-                   System.out.println("tam");
-                   PlayerMap map = new PlayerMap();
+                   System.out.println("Wygral:");
                    for(Player p : game_players){
                        if(winners.contains(p)){
+                           System.out.println(p.getName());
+
                            Player tmp = map.getPlayer(p.getName());
                            if(tmp == null){
                                tmp = p;
