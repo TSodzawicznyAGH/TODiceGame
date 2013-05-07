@@ -15,7 +15,7 @@ public abstract class DiceCombination implements CommandHandler {
         catch (ClassCastException e) {
             return null;
         }
-        if (figureCommand.getFigureName().equals(figureName)) {
+        if (figureCommand.getCommandString().equals(figureName)) {
             return  figureCommand.getDiceSet();
         }
         return null;

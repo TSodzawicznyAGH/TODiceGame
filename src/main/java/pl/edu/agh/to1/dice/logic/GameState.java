@@ -15,6 +15,9 @@ public class GameState {
     public DiceSet getDiceSet() {
         return diceSet;
     }
+    public int getTableLines() {
+        return getTable().getLines();
+    }
     public int getTableSize() {
         return getTable().getSize();
     }

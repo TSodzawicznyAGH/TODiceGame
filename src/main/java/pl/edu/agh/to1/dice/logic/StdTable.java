@@ -15,18 +15,22 @@ public class StdTable extends Table {
         this.jokerChecker = jokerChecker;
     }
 
-    public CommandResponse doExecute(Command command) {
+    public CommandResponse doHandle(Command command) {
         int jokerBonus = 100;
 
         DiceCombination combination = getDiceCombination(command);
-        if (jokerChecker.isSet()
-                && (((ValueCommandResponse<Integer>) (jokerChecker.testHandle(command))).getValue() > 0)) {
-            if ((combination != null) && (combination instanceof DiceJokerCombination)) {
-                ((DiceJokerCombination) combination).joker(command, jokerBonus);
-            }
-            else {
-                combination.doHandle(command);
-                combination.setPoints(combination.getPoints() + jokerBonus);
+        if (command instanceof FigureCommand) {
+            DiceSet diceSet = ((FigureCommand) command).getDiceSet();
+            if (jokerChecker.isSet()
+                    && (jokerChecker.check(diceSet) > 0)) {
+                if ((combination != null) && (combination instanceof DiceJokerCombination)) {
+                    ((DiceJokerCombination) combination).joker(command, jokerBonus);
+                }
+                else {
+                    combination.doHandle(command);
+                    combination.setPoints(combination.getPoints() + jokerBonus);
+                }
+                return new ValueCommandResponse<Integer>(combination.getPoints());
             }
         }
         return super.doHandle(command);
