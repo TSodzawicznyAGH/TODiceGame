@@ -1,11 +1,23 @@
 package pl.edu.agh.to1.dice.logic.commands;
 
-public enum ValueGameCommand implements Command {
-    EXAMPLE("ex");
-
+public class ValueGameCommand<T> implements Command {
+    private T value;
     private String commandString = null;
-    private ValueGameCommand(String commandString) {
+
+    public ValueGameCommand(String commandString, T value) {
         this.commandString = commandString;
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public String getCommandString() {
+        return commandString;
     }
     @Override
     public String toString() {

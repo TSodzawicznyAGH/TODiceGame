@@ -23,7 +23,7 @@ public class StdGameOutputController implements GameOutputController {
             System.out.print("\t");
         }
         System.out.println();
-        for (int i = 0; i < newState.getTableSize(); ++i) {
+        for (int i = 0; i < newState.getTableLines(); ++i) {
             for (Table table : newState.getTables().values()) {
                 System.out.print(table.getLine(i));
                 System.out.print("\t");

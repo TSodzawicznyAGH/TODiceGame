@@ -1,9 +1,6 @@
 package pl.edu.agh.to1.dice.logic.io;
 
-import pl.edu.agh.to1.dice.logic.commands.Command;
-import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
-import pl.edu.agh.to1.dice.logic.commands.FigureCommand;
-import pl.edu.agh.to1.dice.logic.commands.ValueCommandResponse;
+import pl.edu.agh.to1.dice.logic.commands.*;
 
 import javax.annotation.processing.SupportedSourceVersion;
 import java.io.BufferedReader;
@@ -32,13 +29,17 @@ public class StdIOController implements IOController {
                 System.out.println();
                 System.out.print("> ");
 
-                commandString = stdin.readLine();
+                commandString = stdin.readLine().trim();
 
                 if (commandString != null) {
                     for (Command command : availableCommands) {
-                        if (commandString.equals(command.toString())) {
+                        if (commandString.equals(command.getCommandString())) {
                             return command;
                         }
+                    }
+                    if (commandString.startsWith("l")) {
+                        int number = Integer.parseInt(commandString.substring(1).trim());
+                        return new ValueGameCommand<Integer>("l", number-1);
                     }
                 }
             } catch (IOException e) {
@@ -51,10 +52,14 @@ public class StdIOController implements IOController {
     public void callback(CommandResponse response) {
         try {
             ValueCommandResponse<Integer> valueCommandResponse = (ValueCommandResponse<Integer>) response;
-            System.out.format("%d\n", valueCommandResponse.getValue());
+            System.out.format("Otrzymales punktow: %d\n", valueCommandResponse.getValue());
         }
-        catch (ClassCastException e) {
-            System.out.print("Some error occured, retry...");
+        catch (ClassCastException e) { }
+        if (response == CommandResponses.COMMAND_UNKNOWN) {
+            System.out.println("Nieznane polecenie");
+        }
+        if (response == CommandResponses.COMMAND_FAILED) {
+            System.out.println("Polecenie nie powiodlo sie, sprobuj ponownie.");
         }
     }
 

@@ -14,6 +14,10 @@ public class Table implements CommandHandler {
         this.combinations = combinations;
     }
 
+    int getLines() {
+        return getSize();
+    }
+
     int getSize() {
         return combinations.size();
     }

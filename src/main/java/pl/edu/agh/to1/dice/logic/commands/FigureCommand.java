@@ -15,7 +15,7 @@ public class FigureCommand implements Command {
     public void setDiceSet(DiceSet diceSet) {
         this.diceSet = diceSet;
     }
-    public String getFigureName() {
+    public String getCommandString() {
         return figureName;
     }
     public String toString() {
