@@ -28,11 +28,11 @@ public class GameStarter {
                     kosci = bReader.readLine();
                 } catch (IOException e) {return;}
                 if(kosci.equals("t")){
-                    game = GameFactory.getTriGame();
+                    throw new UnsupportedOperationException();
+                    // game = GameFactory.getTriGame(); //cos nie dziala
                 }
                 else{
-                    throw new UnsupportedOperationException();
-                    //game = GameFactory.getStdGame(); //cos nie dziala
+                    game = GameFactory.getStdGame();
                 }
 
                do{
