@@ -26,6 +26,19 @@ import pl.edu.agh.to1.dice.logic.io.IOController;
  */
 public class DicesGui extends JFrame implements IOController, GameOutputController{
 
+    JButton jedynkiButton;
+    JButton dwojkiButton;
+    JButton trojkiButton;
+    JButton czworkiButton;
+    JButton piatkiButton;
+    JButton szostkiButton;
+    JButton trojkaButton;
+    JButton czworkaButton;
+    JButton fulButton;
+    JButton malyButton;
+    JButton duzyButton;
+    JButton generalButton;
+    JButton szansaButton;
     private Canvas canvas;
     private int x_canvas = 420;
     private int y_canvas = 560;
@@ -51,42 +64,40 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         nazwy.add("SUMA");
         nazwy.add("WYNIK");
         setLayout(new BorderLayout());
-        canvas = new Canvas(){
-            public void paint(Graphics g){
-                Font font = new Font(Font.SERIF, 0, 18);
-                g.setFont(font);
-                for(int x=10; x <= x_canvas-10; x+=80){
-                    g.drawLine(x, 10, x, y_canvas - 10);
-                }
-                for(int y=10, i = 0; y <= y_canvas-10; y+=30, i++){
-                    g.drawLine(10, y, x_canvas-10, y);
-                    if(i < 17)
-                        g.drawString(nazwy.get(i), 15, 65+i*30);
-                }
-
-
-            }
-
-            public void update(Graphics g){
-                paint(g);
-            }
-
-        };
+        GameState state = new GameState();
+        state.addPlayer(new Player("Tom"));
+        state.addPlayer(new Player("John"));
+        state.addPlayer(new Player("ccc"));
+        update(state);
         panel = new JPanel();
         JPanel leftPanel = new JPanel();
-        JButton jedynkiButton = new JButton("Jedynki");
-        JButton dwojkiButton = new JButton("Dwójki");
-        JButton trojkiButton = new JButton("Trójki");
-        JButton czworkiButton = new JButton("Czwórki");
-        JButton piatkiButton = new JButton("Piątki");
-        JButton szostkiButton = new JButton("Szóstki");
-        JButton trojkaButton = new JButton("Trójka");
-        JButton czworkaButton = new JButton("Czwórka");
-        JButton fulButton = new JButton("Ful");
-        JButton malyButton = new JButton("Mały Strit");
-        JButton duzyButton = new JButton("Duży Strit");
-        JButton generalButton = new JButton("Generał");
-        JButton szansaButton = new JButton("Szansa");
+        jedynkiButton = new JButton("Jedynki");
+        dwojkiButton = new JButton("Dwójki");
+        trojkiButton = new JButton("Trójki");
+        czworkiButton = new JButton("Czwórki");
+        piatkiButton = new JButton("Piątki");
+        szostkiButton = new JButton("Szóstki");
+        trojkaButton = new JButton("Trójka");
+        czworkaButton = new JButton("Czwórka");
+        fulButton = new JButton("Ful");
+        malyButton = new JButton("Mały Strit");
+        duzyButton = new JButton("Duży Strit");
+        generalButton = new JButton("Generał");
+        szansaButton = new JButton("Szansa");
+        jedynkiButton.addActionListener(new jedynkiClicked());
+        dwojkiButton.addActionListener(new dwojkiClicked());
+        trojkiButton.addActionListener(new trojkiClicked());
+        czworkiButton.addActionListener(new czworkiClicked());
+        piatkiButton.addActionListener(new piatkiClicked());
+        szostkiButton.addActionListener(new szostkiClicked());
+        trojkaButton.addActionListener(new trojkaClicked());
+        czworkaButton.addActionListener(new czworkaClicked());
+        fulButton.addActionListener(new fulClicked());
+        malyButton.addActionListener(new malyClicked());
+        duzyButton.addActionListener(new duzyClicked());
+        generalButton.addActionListener(new generalClicked());
+        szansaButton.addActionListener(new szansaClicked());
+
         leftPanel.setLayout(new GridLayout(13,1));
         leftPanel.add(jedynkiButton);
         leftPanel.add(dwojkiButton);
@@ -136,18 +147,52 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public static void main(String[] args){
-        new DicesGui();
-    }
-
     @Override
     public void init(Player player, GameState initialState) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public void update(GameState newState) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void update(final GameState newState) {
+        canvas = new Canvas(){
+            public void paint(Graphics g){
+                Font font = new Font(Font.SERIF, 0, 18);
+                g.setFont(font);
+                for(int x=10; x <= x_canvas-10; x+=80){
+                    g.drawLine(x, 10, x, y_canvas - 10);
+                }
+                for(int y=10; y <= y_canvas-10; y+=30){
+                    g.drawLine(10, y, x_canvas-10, y);
+                }
+                for(int i=0; i < 17; i++){
+                    g.drawString(nazwy.get(i), 15, 65+i*30);
+                }
+                int pls = 0;
+                for(Player player: newState.getTables().keySet()){
+                    g.drawString(player.getName(), 95 + 80*pls ,35);
+                    pls++;
+                }
+                int j = 0;
+                for (int i = 0; i < newState.getTableLines(); ++i) {
+                    pls = 0;
+                    for (Table table : newState.getTables().values()) {
+                        g.drawString(table.getLine(i), 95 + 80*pls, 65 + j*30);//trzeba zmienic toString() w Table
+                        pls++;
+                    }
+                    if(j == 5){
+                        //wpisz PREMIE I SUME
+                        j+=2;
+                    }
+                    j++;
+                }
+                //wpisz SUME i WYNIK
+            }
+
+            public void update(Graphics g){
+                paint(g);
+            }
+
+        };
     }
 
     @Override
@@ -159,5 +204,104 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     public void terminate() {
         //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    class jedynkiClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            jedynkiButton.setEnabled(false);
+            //dla kazdego z klawiszy robimy jeszcze
+            //dodaj do odpowiedniego wyniku
+            //daj zagrac nastepnemu graczowi
+        }
+    }
+
+    class dwojkiClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            dwojkiButton.setEnabled(false);
+        }
+    }
+
+    class trojkiClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            trojkiButton.setEnabled(false);
+        }
+    }
+
+    class czworkiClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            czworkiButton.setEnabled(false);
+        }
+    }
+
+    class piatkiClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            piatkiButton.setEnabled(false);
+        }
+    }
+
+    class szostkiClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            szostkiButton.setEnabled(false);
+        }
+    }
+
+    class trojkaClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            trojkaButton.setEnabled(false);
+        }
+    }
+
+    class czworkaClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            czworkaButton.setEnabled(false);
+        }
+    }
+
+    class fulClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            fulButton.setEnabled(false);
+        }
+    }
+
+    class malyClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            malyButton.setEnabled(false);
+        }
+    }
+
+    class duzyClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            duzyButton.setEnabled(false);
+        }
+    }
+
+    class generalClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            generalButton.setEnabled(false);
+        }
+    }
+
+    class szansaClicked implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            szansaButton.setEnabled(false);
+        }
+    }
+
+    public static void main(String[] args){
+        new DicesGui();
+    }
+
 }
 
