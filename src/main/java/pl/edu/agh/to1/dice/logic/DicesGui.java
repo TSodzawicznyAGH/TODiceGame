@@ -10,7 +10,12 @@ package pl.edu.agh.to1.dice.logic;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Set;
 import javax.swing.*;
+import pl.edu.agh.to1.dice.logic.commands.Command;
+import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
+import pl.edu.agh.to1.dice.logic.io.GameOutputController;
+import pl.edu.agh.to1.dice.logic.io.IOController;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,7 +24,7 @@ import javax.swing.*;
  * Time: 22:28
  * To change this template use File | Settings | File Templates.
  */
-public class DicesGui extends JFrame{
+public class DicesGui extends JFrame implements IOController, GameOutputController{
 
     private Canvas canvas;
     private int x_canvas = 420;
@@ -68,11 +73,42 @@ public class DicesGui extends JFrame{
 
         };
         panel = new JPanel();
-        canvas.setBounds(0,0, x_canvas, y_canvas);
+        JPanel leftPanel = new JPanel();
+        JButton jedynkiButton = new JButton("Jedynki");
+        JButton dwojkiButton = new JButton("Dwójki");
+        JButton trojkiButton = new JButton("Trójki");
+        JButton czworkiButton = new JButton("Czwórki");
+        JButton piatkiButton = new JButton("Piątki");
+        JButton szostkiButton = new JButton("Szóstki");
+        JButton trojkaButton = new JButton("Trójka");
+        JButton czworkaButton = new JButton("Czwórka");
+        JButton fulButton = new JButton("Ful");
+        JButton malyButton = new JButton("Mały Strit");
+        JButton duzyButton = new JButton("Duży Strit");
+        JButton generalButton = new JButton("Generał");
+        JButton szansaButton = new JButton("Szansa");
+        leftPanel.setLayout(new GridLayout(13,1));
+        leftPanel.add(jedynkiButton);
+        leftPanel.add(dwojkiButton);
+        leftPanel.add(trojkiButton);
+        leftPanel.add(czworkiButton);
+        leftPanel.add(piatkiButton);
+        leftPanel.add(szostkiButton);
+        leftPanel.add(trojkaButton);
+        leftPanel.add(czworkaButton);
+        leftPanel.add(fulButton);
+        leftPanel.add(malyButton);
+        leftPanel.add(duzyButton);
+        leftPanel.add(generalButton);
+        leftPanel.add(szansaButton);
+        JPanel rightPanel = new JPanel();
+        rightPanel.add(new JTextField("PRAWA STRONA!"));
+        canvas.setBounds(0, 0, x_canvas, y_canvas);
         canvas.setBackground(Color.CYAN);
-        canvas.addMouseListener(mouseListener);
         panel.setLayout(new BorderLayout());
-        panel.add(canvas, BorderLayout.WEST);
+        panel.add(canvas, BorderLayout.CENTER);
+        panel.add(leftPanel, BorderLayout.WEST);
+        panel.add(rightPanel, BorderLayout.EAST);
         this.add(panel);
 
         setResizable(false);
@@ -80,49 +116,48 @@ public class DicesGui extends JFrame{
         setVisible(true);
     }
 
-    private MouseListener mouseListener = new MouseListener() {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            int x1 = e.getX();
-            int y1 = e.getY();
-            checkingValue(x1, y1);
-        }
+    @Override
+    public void init(Set<Command> availableCommands) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 
-        @Override
-        public void mousePressed(MouseEvent e) {
-            //not important
-        }
+    @Override
+    public Command read(Set<Command> availableCommands) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            //not important
-        }
+    @Override
+    public void callback(CommandResponse response) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            //not important
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            //not important
-        }
-    };
-
-    private void checkingValue(int x, int y){
-        //player = players.get((x-10)/80);
-        //result = results.get((y-10)/30);
-        //if(player.equals(playing_player)){
-        //  if(player.resluts.getresult(result) == NULL){
-        //      aktualizacja
-        //  }
-        //}
+    @Override
+    public void send(Command command) {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public static void main(String[] args){
         new DicesGui();
     }
 
+    @Override
+    public void init(Player player, GameState initialState) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 
+    @Override
+    public void update(GameState newState) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void finish(Set<Player> winners) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void terminate() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 }
 
