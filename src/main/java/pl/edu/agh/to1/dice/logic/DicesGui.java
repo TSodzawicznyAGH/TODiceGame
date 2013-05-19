@@ -40,6 +40,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     JPanel leftPanel = new JPanel();
     JPanel rightPanel = new JPanel();
     private GameState nowState = null;
+    private String name;
 
     class figureClicked implements ActionListener {
         private Command command;
@@ -70,7 +71,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
 
     }
 
-    public DicesGui(){
+    public DicesGui(String name){
         nazwy.add("jedynki");
         nazwy.add("dwójki");
         nazwy.add("trójki");
@@ -88,6 +89,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         nazwy.add("szansa");
         nazwy.add("SUMA");
         nazwy.add("WYNIK");
+        this.name = name;
     }
 
     public void showGui(){
@@ -98,6 +100,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     public void init(List<Command> availableCommands) {
 
         setLayout(new BorderLayout());
+        this.setTitle(name);
 
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
