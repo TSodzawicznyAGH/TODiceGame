@@ -164,9 +164,8 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         try {
             InputStream myStream = new BufferedInputStream(new FileInputStream("CODE2000.TTF"));
             ttfBase = Font.createFont(Font.TRUETYPE_FONT, myStream);
-            ttfReal = ttfBase.deriveFont(Font.PLAIN, 50);
+            ttfReal = ttfBase.deriveFont(Font.PLAIN, 72);
         } catch (Exception ex) {
-            ex.printStackTrace();
             System.err.println("CODE2000 not loaded.");
         }
     }
