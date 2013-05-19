@@ -37,7 +37,7 @@ public class GameStarter {
                     game = GameFactory.getStdGame();
                 }
 
-               do{
+                do{
                    System.out.print("Podaj liczbę graczy: ");
                    String s = new String("0");
                    try {

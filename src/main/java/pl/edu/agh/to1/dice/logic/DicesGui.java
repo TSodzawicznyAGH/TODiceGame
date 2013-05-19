@@ -106,6 +106,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         buttons = new LinkedHashMap<String, JButton>();
         for(Command command: availableCommands){
             JButton button = new JButton(command.toString());
+            button.setEnabled(false);
             button.addActionListener(new figureClicked(command));
             buttons.put(command.toString(), button);
             leftPanel.add(button);
@@ -167,7 +168,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         pack();
         setVisible(true);
 
-        read(availableCommands);
+        //read(availableCommands);
     }
 
     @Override
