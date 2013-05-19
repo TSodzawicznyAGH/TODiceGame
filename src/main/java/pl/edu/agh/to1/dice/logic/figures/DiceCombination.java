@@ -68,6 +68,7 @@ public abstract class DiceCombination implements CommandHandler {
 
     @Override
     public String toString() {
-        return String.format("%-3s %3s", figureName, ((points < 0) ? "-" : Integer.toString(points)));
+        //return String.format("%-3s %3s", figureName, ((points < 0) ? "-" : Integer.toString(points)));
+        return String.format("%3s", ((points < 0) ? " " : Integer.toString(points)));
     }
 }
