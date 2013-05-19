@@ -9,7 +9,10 @@ package pl.edu.agh.to1.dice.logic;
  */
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.*;
 import java.util.List;
@@ -45,10 +48,16 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     JButton buttonDices[];
     int nrOfDices = 5;
     int currentRerolls = 0;
+    Game game;
+    JButton throwDices;
+    Font ttfBase = null;
+    Font ttfReal = null;
 
     private void updateDices(){
+        final Character[] chars = {'\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685'};
         for(int i=0; i<nrOfDices; i++){
-            buttonDices[i].setText( new Integer( nowState.getDiceSet().getValue(i) ).toString()  );
+            buttonDices[i].setFont(ttfReal);
+            buttonDices[i].setText( chars[nowState.getDiceSet().getValue(i)-1].toString()  );
             if( nowState.getDiceSet().isLocked(i)  ){
                 buttonDices[i].setBackground(Color.LIGHT_GRAY);
             }
@@ -104,15 +113,17 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     class throwClicked implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-       /*     if(currentRerolls >= 2)
+        /*     if(currentRerolls >= 2)
                 return;
             currentRerolls++;
             if(nowState != null){
                 nowState.getDiceSet().roll();
                 updateDices();
             }
-         */
-         myCommand = GameCommand.REROLL;
+        */
+            throwDices.setEnabled(false);
+            myCommand = GameCommand.REROLL;
+
         }
     }
     public void resetPanel(boolean toRead, Set<Command> availableCommands, final GameState newState){
@@ -150,6 +161,14 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         nazwy.add("SUMA");
         nazwy.add("WYNIK");
         this.name = name;
+        try {
+            InputStream myStream = new BufferedInputStream(new FileInputStream("CODE2000.TTF"));
+            ttfBase = Font.createFont(Font.TRUETYPE_FONT, myStream);
+            ttfReal = ttfBase.deriveFont(Font.PLAIN, 50);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.err.println("CODE2000 not loaded.");
+        }
     }
 
     public void showGui(){
@@ -157,7 +176,9 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     }
 
     @Override
-    public void init(List<Command> availableCommands) {
+    public void init(List<Command> availableCommands, Game game) {
+
+        this.game = game;
 
         setLayout(new BorderLayout());
         this.setTitle(name);
@@ -234,7 +255,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
             rightPanel.add(buttonDices[i]);
         }
 
-        JButton throwDices = new JButton("Rzut kośćmi");
+        throwDices = new JButton("Rzut kośćmi");
         throwDices.addActionListener(new throwClicked());
         rightPanel.add(throwDices);
 
@@ -252,6 +273,9 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
 
     @Override
     public Command read(Set<Command> availableCommands) {
+        if(game.getLeftRerolls() > 0){
+            throwDices.setEnabled(true);
+        }
         myCommand = null;
         resetPanel(true, availableCommands, null);
         /*try{

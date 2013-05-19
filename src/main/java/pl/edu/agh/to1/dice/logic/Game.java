@@ -47,7 +47,7 @@ public class Game implements CommandHandler{
     private void initIOControllers() {
         List<Command> allCommands = gameState.getTable().getCommandList();
         for (IOController ioController : ioControllerMap.values()) {
-            ioController.init(allCommands);
+            ioController.init(allCommands, this);
         }
         for (Player player: gameOutputControllerMap.keySet()) {
             gameOutputControllerMap.get(player).init(player, gameState);
@@ -66,8 +66,7 @@ public class Game implements CommandHandler{
         Table table = gameState.getTables().get(player);
         DiceSet diceSet = gameState.getDiceSet();
 
-        Set<Command> availableCommands = table.getAvailableCommands();
-        availableCommands.addAll(handledCommands);
+
 
         boolean ready = false;
         currentRerolls = 0;
@@ -76,7 +75,11 @@ public class Game implements CommandHandler{
 
         while (!ready) {
             updateGameControllers();
+
+            Set<Command> availableCommands = table.getAvailableCommands();
+            availableCommands.addAll(handledCommands);
             Command command = ioController.read(availableCommands);
+
             try {
                 ((FigureCommand) command).setDiceSet(gameState.getDiceSet());
             }
@@ -138,6 +141,10 @@ public class Game implements CommandHandler{
 
     public int getMaxRerolls() {
         return maxRerolls;
+    }
+
+    public int getLeftRerolls(){
+        return maxRerolls-currentRerolls;
     }
 
 

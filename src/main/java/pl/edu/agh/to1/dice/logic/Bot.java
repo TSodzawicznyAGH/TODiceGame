@@ -16,7 +16,7 @@ public class Bot implements GameOutputController, IOController{
 	private DiceSet diceSet;
 	private Player player;
 	
-	public void init(java.util.List<Command> availableCommands) {
+	public void init(java.util.List<Command> availableCommands, Game game) {
 		this.availableCommands = new HashSet<Command>(availableCommands);
 	}
 

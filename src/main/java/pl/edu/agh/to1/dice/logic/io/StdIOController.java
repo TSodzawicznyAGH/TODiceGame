@@ -1,5 +1,6 @@
 package pl.edu.agh.to1.dice.logic.io;
 
+import pl.edu.agh.to1.dice.logic.Game;
 import pl.edu.agh.to1.dice.logic.commands.*;
 
 import javax.annotation.processing.SupportedSourceVersion;
@@ -13,7 +14,7 @@ public class StdIOController implements IOController {
     private BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
 
     @Override
-    public void init(List<Command> availableCommands) {
+    public void init(List<Command> availableCommands, Game game) {
         System.out.println("Hello there");
     }
 
