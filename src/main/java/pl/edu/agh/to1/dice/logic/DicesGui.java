@@ -257,6 +257,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         throwDices = new JButton("Rzut kośćmi");
         throwDices.addActionListener(new throwClicked());
         rightPanel.add(throwDices);
+        throwDices.setEnabled(false);
 
         panel.add(leftPanel, BorderLayout.WEST);
         panel.add(canvas, BorderLayout.CENTER);
@@ -292,6 +293,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         for(JButton button : buttons.values()){
             button.setEnabled(false);
         }
+        throwDices.setEnabled(false);
         return myCommand;
     }
 
