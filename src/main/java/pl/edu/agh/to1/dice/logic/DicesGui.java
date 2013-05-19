@@ -11,10 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.lang.reflect.MalformedParameterizedTypeException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import javax.swing.*;
 import pl.edu.agh.to1.dice.logic.commands.Command;
 import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
@@ -31,14 +28,17 @@ import pl.edu.agh.to1.dice.logic.io.IOController;
  */
 public class DicesGui extends JFrame implements IOController, GameOutputController{
 
-    Map<String, JButton> buttons = new HashMap<String, JButton>();
+    Map<String, JButton> buttons = new LinkedHashMap<String, JButton>();
 
-    private Canvas canvas;
+    private Canvas canvas = null;
     private int x_canvas = 420;
     private int y_canvas = 560;
     private JPanel panel;
     private ArrayList<String> nazwy = new ArrayList<String>();
     private Command myCommand = null;
+    JPanel leftPanel = new JPanel();
+    JPanel rightPanel = new JPanel();
+    private GameState nowState = null;
 
     class figureClicked implements ActionListener {
         private Command command;
@@ -49,12 +49,27 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         @Override
         public void actionPerformed(ActionEvent e) {
             myCommand = command;
-            //notify
+            //this.notify();
         }
     }
 
-    @Override
-    public void init(Set<Command> availableCommands) {
+    public void resetPanel(boolean toRead, Set<Command> availableCommands, final GameState newState){
+        if(toRead){
+            for(String button : buttons.keySet()){
+                for(Command cmd : availableCommands){
+                    if(button.equals(cmd.toString())){
+                        buttons.get(button).setEnabled(true);
+                    }
+                }
+            }
+        }
+        else{
+            canvas.repaint();
+        }
+
+    }
+
+    public DicesGui(){
         nazwy.add("jedynki");
         nazwy.add("dwójki");
         nazwy.add("trójki");
@@ -72,50 +87,106 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         nazwy.add("szansa");
         nazwy.add("SUMA");
         nazwy.add("WYNIK");
+    }
+
+    public void showGui(){
+
+    }
+
+    @Override
+    public void init(Set<Command> availableCommands) {
+
         setLayout(new BorderLayout());
-        GameState state = new GameState();
 
         panel = new JPanel();
-        JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(new GridLayout(13,1));
-        JPanel rightPanel = new JPanel();
-        rightPanel.add(new JTextField("PRAWA STRONA!"));
-        canvas.setBounds(0, 0, x_canvas, y_canvas);
-        canvas.setBackground(Color.CYAN);
         panel.setLayout(new BorderLayout());
-        panel.add(canvas, BorderLayout.CENTER);
-        panel.add(leftPanel, BorderLayout.WEST);
-        panel.add(rightPanel, BorderLayout.EAST);
-        this.add(panel);
+
+        leftPanel = new JPanel();
+        leftPanel.setLayout(new GridLayout(13,1));
+        buttons = new LinkedHashMap<String, JButton>();
         for(Command command: availableCommands){
             JButton button = new JButton(command.toString());
             button.addActionListener(new figureClicked(command));
             buttons.put(command.toString(), button);
-            leftPanel.add(new JButton(command.toString()));
+            leftPanel.add(button);
         }
+
+        canvas = new Canvas(){
+            public void paint(Graphics g){
+                Font font = new Font(Font.SERIF, 0, 18);
+                g.setFont(font);
+                for(int x=10; x <= x_canvas-10; x+=80){
+                    g.drawLine(x, 10, x, y_canvas - 10);
+                }
+                for(int y=10; y <= y_canvas-10; y+=30){
+                    g.drawLine(10, y, x_canvas-10, y);
+                }
+                for(int i=0; i < 17; i++){
+                    g.drawString(nazwy.get(i), 15, 65+i*30);
+                }
+                int pls = 0;
+                if(nowState != null){
+                    for(Player player: nowState.getTables().keySet()){
+                        g.drawString(player.getName(), 95 + 80*pls ,35);
+                        pls++;
+                    }
+                    int j = 0;
+                    for (int i = 0; i < nowState.getTableLines(); ++i) {
+                        pls = 0;
+                        for (Table table : nowState.getTables().values()) {
+                            g.drawString(table.getLine(i), 95 + 80*pls, 65 + j*30);//trzeba zmienic toString() w Table
+                            pls++;
+                        }
+                        if(j == 5){
+                            //wpisz PREMIE I SUME
+                            j+=2;
+                        }
+                        j++;
+                    }
+                    //wpisz SUME i WYNIK
+                }
+            }
+
+            public void update(Graphics g){
+                paint(g);
+            }
+
+        };
+        canvas.setBounds(0, 0, x_canvas, y_canvas);
+        canvas.setBackground(Color.CYAN);
+
+        rightPanel = new JPanel();
+        rightPanel.add(new JTextField("PRAWA STRONA!"));
+
+        panel.add(leftPanel, BorderLayout.WEST);
+        panel.add(canvas, BorderLayout.CENTER);
+        panel.add(rightPanel, BorderLayout.EAST);
+        this.add(panel);
 
         setResizable(false);
         pack();
         setVisible(true);
+
+        read(availableCommands);
     }
 
     @Override
     public Command read(Set<Command> availableCommands) {
-        for(String key: buttons.keySet()){
-            boolean enabling = false;
-            for(Command cmd: availableCommands){
-                if(cmd.toString().equals(key)){
-                    enabling = true;
-                }
-            }
-            buttons.get(key).enable(enabling);
-        }
-        try{
-            //wait
+        myCommand = null;
+        resetPanel(true, availableCommands, null);
+        /*try{
+            this.wait();
         }catch (InterruptedException e){
             e.printStackTrace();
+        }*/
+        while(myCommand == null){
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
-        for(JButton button: buttons.values()){
+        }
+        for(JButton button : buttons.values()){
             button.setEnabled(false);
         }
         return myCommand;
@@ -139,45 +210,8 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
 
     @Override
     public void update(final GameState newState) {
-        canvas = new Canvas(){
-            public void paint(Graphics g){
-                Font font = new Font(Font.SERIF, 0, 18);
-                g.setFont(font);
-                for(int x=10; x <= x_canvas-10; x+=80){
-                    g.drawLine(x, 10, x, y_canvas - 10);
-                }
-                for(int y=10; y <= y_canvas-10; y+=30){
-                    g.drawLine(10, y, x_canvas-10, y);
-                }
-                for(int i=0; i < 17; i++){
-                    g.drawString(nazwy.get(i), 15, 65+i*30);
-                }
-                int pls = 0;
-                for(Player player: newState.getTables().keySet()){
-                    g.drawString(player.getName(), 95 + 80*pls ,35);
-                    pls++;
-                }
-                int j = 0;
-                for (int i = 0; i < newState.getTableLines(); ++i) {
-                    pls = 0;
-                    for (Table table : newState.getTables().values()) {
-                        g.drawString(table.getLine(i), 95 + 80*pls, 65 + j*30);//trzeba zmienic toString() w Table
-                        pls++;
-                    }
-                    if(j == 5){
-                        //wpisz PREMIE I SUME
-                        j+=2;
-                    }
-                    j++;
-                }
-                //wpisz SUME i WYNIK
-            }
-
-            public void update(Graphics g){
-                paint(g);
-            }
-
-        };
+        nowState = newState;
+        resetPanel(false, null, nowState);
     }
 
     @Override

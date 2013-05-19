@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.*;
 import pl.edu.agh.to1.dice.logic.io.IOController;
 import pl.edu.agh.to1.dice.logic.io.StdGameOutputController;
 import pl.edu.agh.to1.dice.logic.io.StdIOController;
@@ -16,6 +17,7 @@ public class GameStarter {
     IOController ioController = new StdIOController();
     Set<Player> game_players = new HashSet<Player>();
     Game game;
+    final DicesGui[] contr = new DicesGui[4];
 
     public void play(){
             PlayerMap map = new PlayerMap();
@@ -56,7 +58,7 @@ public class GameStarter {
                         name = bReader.readLine();
                     } catch (IOException e) {return;}
                     Player player = new Player(name);
-                   game_players.add(player);
+                    game_players.add(player);
                     System.out.print("Czy chcesz aby ten gracz był botem?[y/n]");
                     String ifbot = new String("y");
                     try {
@@ -68,7 +70,13 @@ public class GameStarter {
                         game.addPlayer(player, bot, bot);
                     }
                     else{
-                        game.addPlayer(player, ioController, gameOutputController);
+                            DicesGui contr = new DicesGui();
+
+                        SwingUtilities.invokeLater(
+                                new RunGui(contr)
+                        );
+                        //game.addPlayer(player, ioController, gameOutputController);
+                        game.addPlayer(player, contr, contr);
                     }
                }
                 for (Player player : game_players) {
@@ -150,5 +158,18 @@ public class GameStarter {
                    }
 
                }
+    }
+
+    private static class RunGui extends Thread{
+
+        DicesGui gui;
+
+        public RunGui(DicesGui gui){
+            this.gui = gui;
+        }
+
+        public void run(){
+            gui.showGui();
+        }
     }
 }
