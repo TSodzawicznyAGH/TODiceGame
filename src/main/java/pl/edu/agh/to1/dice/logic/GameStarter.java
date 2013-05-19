@@ -70,7 +70,7 @@ public class GameStarter {
                         game.addPlayer(player, bot, bot);
                     }
                     else{
-                            DicesGui contr = new DicesGui();
+                            DicesGui contr = new DicesGui(player.getName());
 
                         SwingUtilities.invokeLater(
                                 new RunGui(contr)
