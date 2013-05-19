@@ -6,13 +6,14 @@ import javax.annotation.processing.SupportedSourceVersion;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Set;
 
 public class StdIOController implements IOController {
     private BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
 
     @Override
-    public void init(Set<Command> availableCommands) {
+    public void init(List<Command> availableCommands) {
         System.out.println("Hello there");
     }
 

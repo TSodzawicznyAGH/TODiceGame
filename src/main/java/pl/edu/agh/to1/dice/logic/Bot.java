@@ -1,6 +1,7 @@
 package pl.edu.agh.to1.dice.logic;
 
-import java.util.Set;
+import java.awt.*;
+import java.util.*;
 import pl.edu.agh.to1.dice.logic.commands.Command;
 import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
 import pl.edu.agh.to1.dice.logic.commands.FigureCommand;
@@ -15,8 +16,8 @@ public class Bot implements GameOutputController, IOController{
 	private DiceSet diceSet;
 	private Player player;
 	
-	public void init(Set<Command> availableCommands) {
-		this.availableCommands = availableCommands;		
+	public void init(java.util.List<Command> availableCommands) {
+		this.availableCommands = new HashSet<Command>(availableCommands);
 	}
 
 	@SuppressWarnings("unchecked")

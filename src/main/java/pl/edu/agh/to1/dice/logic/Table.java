@@ -4,6 +4,7 @@ import pl.edu.agh.to1.dice.logic.commands.*;
 import pl.edu.agh.to1.dice.logic.figures.DiceCombination;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -23,14 +24,17 @@ public class Table implements CommandHandler {
     }
 
     Set<Command> getAllCommands() {
-        Set<String> combinationNames = new HashSet<String>();
-        for (DiceCombination combination : combinations) {
-            combinationNames.add(combination.getName());
-        }
-
         Set<Command> commands = new HashSet<Command>();
-        for (String combinationName : combinationNames) {
-            commands.add(new FigureCommand(combinationName));
+        for (DiceCombination combination : combinations) {
+            commands.add(new FigureCommand(combination.getName()));
+        }
+        return commands;
+    }
+
+    List<Command> getCommandList() {
+        List<Command> commands = new LinkedList<Command>();
+        for (DiceCombination combination : combinations) {
+            commands.add(new FigureCommand(combination.getName()));
         }
         return commands;
     }

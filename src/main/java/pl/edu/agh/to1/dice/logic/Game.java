@@ -45,7 +45,7 @@ public class Game implements CommandHandler{
     }
 
     private void initIOControllers() {
-        Set<Command> allCommands = gameState.getTable().getAllCommands();
+        List<Command> allCommands = gameState.getTable().getCommandList();
         for (IOController ioController : ioControllerMap.values()) {
             ioController.init(allCommands);
         }
@@ -143,6 +143,7 @@ public class Game implements CommandHandler{
 
     List<Command> handledCommands = Arrays.asList(GameCommand.TERMINATE, GameCommand.REROLL,
             new ValueGameCommand<Integer>("l", -1));
+
     public boolean canHandle(Command command) {
         if ((command == GameCommand.TERMINATE) || (command == GameCommand.REROLL)
             || ((command.getCommandString().equals("l") && (command instanceof ValueGameCommand)))) {

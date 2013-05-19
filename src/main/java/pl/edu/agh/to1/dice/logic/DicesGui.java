@@ -12,6 +12,7 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.*;
+import java.util.List;
 import javax.swing.*;
 import pl.edu.agh.to1.dice.logic.commands.Command;
 import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
@@ -94,7 +95,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     }
 
     @Override
-    public void init(Set<Command> availableCommands) {
+    public void init(List<Command> availableCommands) {
 
         setLayout(new BorderLayout());
 
