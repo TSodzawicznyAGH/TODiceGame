@@ -119,6 +119,7 @@ public class Game implements CommandHandler{
                     winners.add(player);
                 }
                 if (score > max) {
+                    max = score;
                     winners.clear();
                     winners.add(player);
                 }
