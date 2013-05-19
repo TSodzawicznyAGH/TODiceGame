@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.*;
 import pl.edu.agh.to1.dice.logic.commands.Command;
 import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
+import pl.edu.agh.to1.dice.logic.commands.GameCommand;
 import pl.edu.agh.to1.dice.logic.commands.ValueGameCommand;
 import pl.edu.agh.to1.dice.logic.io.GameOutputController;
 import pl.edu.agh.to1.dice.logic.io.IOController;
@@ -48,12 +49,15 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     private void updateDices(){
         for(int i=0; i<nrOfDices; i++){
             buttonDices[i].setText( new Integer( nowState.getDiceSet().getValue(i) ).toString()  );
+            if( nowState.getDiceSet().isLocked(i)  ){
+                buttonDices[i].setBackground(Color.LIGHT_GRAY);
+            }
+            else{
+                buttonDices[i].setBackground(Color.WHITE);
+            }
         }
     }
-    private void setWhiteDiceButtons(){
-        for(int i=0; i<nrOfDices; i++)
-            buttonDices[i].setBackground(Color.WHITE);
-    }
+
 
 
     class figureClicked implements ActionListener {
@@ -76,7 +80,8 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         }
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getSource() instanceof JButton){
+            myCommand = new ValueGameCommand<Integer>("l",number) ;
+     /*       if(e.getSource() instanceof JButton){
                 JButton  button;
                 button = (JButton)e.getSource();
                 if(button.getBackground() == Color.WHITE){
@@ -84,31 +89,30 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
                     if(nowState != null){
                         nowState.getDiceSet().lock(number);
                     }
-                    button.setBackground(Color.LIGHT_GRAY);
                 }
                 else{
                     //dice.unlock
                     if(nowState != null){
                         nowState.getDiceSet().unlock(number);
                     }
-                    button.setBackground(Color.WHITE);
+
                 }
-            }
+            }  */
         }
     }
 
     class throwClicked implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(currentRerolls >= 2)
+       /*     if(currentRerolls >= 2)
                 return;
             currentRerolls++;
             if(nowState != null){
                 nowState.getDiceSet().roll();
                 updateDices();
             }
-
+         */
+         myCommand = GameCommand.REROLL;
         }
     }
     public void resetPanel(boolean toRead, Set<Command> availableCommands, final GameState newState){
@@ -223,7 +227,6 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         buttonDices = new JButton[nrOfDices];
         for(int i=0; i<nrOfDices; i++){
             buttonDices[i] = new JButton("");
-           // buttonDices[i].setBackground(Color.WHITE);
             buttonDices[i].addActionListener(new diceClicked(i));
             if(nowState != null){
                    buttonDices[i].setText("T");
@@ -231,7 +234,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
             rightPanel.add(buttonDices[i]);
         }
 
-        JButton throwDices = new JButton("rzuc koscmi");
+        JButton throwDices = new JButton("Rzut kośćmi");
         throwDices.addActionListener(new throwClicked());
         rightPanel.add(throwDices);
 
@@ -290,7 +293,6 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
         nowState = newState;
         resetPanel(false, null, nowState);
         currentRerolls=0;
-        setWhiteDiceButtons();
         updateDices();
     }
 
