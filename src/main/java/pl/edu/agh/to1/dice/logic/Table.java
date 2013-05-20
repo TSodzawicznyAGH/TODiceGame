@@ -68,6 +68,10 @@ public class Table implements CommandHandler {
         return combinations.get(i).toString();
     }
 
+    public DiceCombination get(int i) {
+        return combinations.get(i);
+    }
+
     protected DiceCombination getDiceCombination(Command command) {
         DiceCombination handler = null;
         for (DiceCombination diceCombination : combinations) {

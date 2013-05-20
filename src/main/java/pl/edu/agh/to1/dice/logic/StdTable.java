@@ -9,31 +9,104 @@ import java.util.List;
 
 public class StdTable extends Table {
     private final DiceGeneralCombination jokerChecker;
+    private int bonus = 0;
+    private int totalLow = 0;
+    private int totalHigh = 0;
+    private int multiplier = 1;
 
     private StdTable(List<DiceCombination> combinations, DiceGeneralCombination jokerChecker) {
         super(combinations);
         this.jokerChecker = jokerChecker;
     }
 
-    public CommandResponse doHandle(Command command) {
+    private StdTable(List<DiceCombination> combinations, DiceGeneralCombination jokerChecker, int multiplier) {
+        super(combinations);
+        this.jokerChecker = jokerChecker;
+        this.multiplier = multiplier;
+    }
+
+    private DiceCombination handle(Command command) {
         int jokerBonus = 100;
 
         DiceCombination combination = getDiceCombination(command);
-        if (command instanceof FigureCommand) {
+        if (combination != null) {
             DiceSet diceSet = ((FigureCommand) command).getDiceSet();
-            if (jokerChecker.isSet()
-                    && (jokerChecker.check(diceSet) > 0)) {
-                if ((combination != null) && (combination instanceof DiceJokerCombination)) {
-                    ((DiceJokerCombination) combination).joker(command, jokerBonus);
+
+            if (!combination.isSet()) {
+                if (jokerChecker.isSet()
+                        && (jokerChecker.check(diceSet) > 0)) {
+                    // if joker
+                    if ((combination != null) && (combination instanceof DiceJokerCombination)) {
+                        ((DiceJokerCombination) combination).joker(command, jokerBonus);
+                    }
+                    else {
+                        combination.doHandle(command);
+                        combination.setPoints(combination.getPoints() + jokerBonus);
+                    }
                 }
                 else {
                     combination.doHandle(command);
-                    combination.setPoints(combination.getPoints() + jokerBonus);
                 }
-                return new ValueCommandResponse<Integer>(combination.getPoints());
+
+                combination.setPoints(combination.getPoints() * multiplier);
             }
         }
-        return super.doHandle(command);
+        return combination;
+    }
+
+    public CommandResponse testHandle(Command command) {
+        DiceCombination combination = handle(command);
+
+        if (combination != null) {
+            int points = combination.getPoints();
+            combination.setPoints(-1);
+
+            return new ValueCommandResponse<Integer>(points);
+        }
+        // else
+        return CommandResponses.COMMAND_UNKNOWN;
+    }
+
+    public CommandResponse doHandle(Command command) {
+        DiceCombination combination = handle(command);
+
+        if (combination != null) {
+            int points = combination.getPoints();
+            if (combination instanceof DiceLowerCombination) {
+                totalLow += points;
+                if (totalLow >= 63 && bonus == 0) {
+                    bonus += 35;
+                }
+            }
+            else {
+                totalHigh += points;
+            }
+
+            return new ValueCommandResponse<Integer>(points);
+        }
+        // else
+        return CommandResponses.COMMAND_UNKNOWN;
+    }
+
+    public int getTotalHigh() {
+        return totalHigh;
+    }
+
+    public int getTotalLow() {
+        return totalLow;
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+    public int getTotal() {
+        return totalHigh + totalLow + bonus;
+    }
+
+    @Override
+    public int getScore() {
+        return getTotal();
     }
 
     public static Table getTable() {

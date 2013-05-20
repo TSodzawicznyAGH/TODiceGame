@@ -14,13 +14,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.MalformedParameterizedTypeException;
+import java.text.AttributedString;
 import java.util.*;
 import java.util.List;
 import javax.swing.*;
-import pl.edu.agh.to1.dice.logic.commands.Command;
-import pl.edu.agh.to1.dice.logic.commands.CommandResponse;
-import pl.edu.agh.to1.dice.logic.commands.GameCommand;
-import pl.edu.agh.to1.dice.logic.commands.ValueGameCommand;
+
+import pl.edu.agh.to1.dice.logic.commands.*;
+import pl.edu.agh.to1.dice.logic.figures.DiceCombination;
 import pl.edu.agh.to1.dice.logic.io.GameOutputController;
 import pl.edu.agh.to1.dice.logic.io.IOController;
 
@@ -54,10 +54,16 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
     Font ttfReal = null;
 
     private void updateDices(){
-        final Character[] chars = {'\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685'};
+        final String[] glyphs = {"\u2680", "\u2681", "\u2682", "\u2683", "\u2684", "\u2685"};
         for(int i=0; i<nrOfDices; i++){
-            buttonDices[i].setFont(ttfReal);
-            buttonDices[i].setText( chars[nowState.getDiceSet().getValue(i)-1].toString()  );
+            if (ttfReal != null) {
+                buttonDices[i].setFont(ttfReal);
+                buttonDices[i].setText( glyphs[nowState.getDiceSet().getValue(i)-1] );
+            }
+            else {
+                buttonDices[i].setText( Integer.toString(nowState.getDiceSet().getValue(i))  );
+            }
+
             if( nowState.getDiceSet().isLocked(i)  ){
                 buttonDices[i].setBackground(Color.LIGHT_GRAY);
             }
@@ -126,6 +132,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
 
         }
     }
+
     public void resetPanel(boolean toRead, Set<Command> availableCommands, final GameState newState){
         if(toRead){
             for(String button : buttons.keySet()){
@@ -215,7 +222,7 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
                         g.drawString(player.getName(), 95 + 80*pls ,35);
                         pls++;
                     }
-                    int j = 0;
+                    /*int j = 0;
                     for (int i = 0; i < nowState.getTableLines(); ++i) {
                         pls = 0;
                         for (Table table : nowState.getTables().values()) {
@@ -229,10 +236,36 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
                         j++;
                     }
                     //wpisz SUME i WYNIK
+                    */
+                    pls = 0;
+                    for (Table table : nowState.getTables().values()) {
+                        StdTable stdTable = (StdTable) table;
+                        int j = 0;
+                        for (int i = 0; i < nowState.getTableLines(); ++i) {
+                            g.drawString(table.getLine(i), 95 + 80*pls, 65 + j*30);//trzeba zmienic toString() w Table
+
+                            if(j == 5){
+                                //wpisz PREMIE I SUME
+                                j++;
+                                g.drawString(Integer.toString(stdTable.getBonus()), 95 + 80*pls, 65 + j*30);
+                                j++;
+                                g.drawString(Integer.toString(stdTable.getTotalLow()), 95 + 80*pls, 65 + j*30);
+                            }
+                            j++;
+                        }
+                        //wpisz SUME i WYNIK
+                        g.drawString(Integer.toString(stdTable.getTotalHigh()), 95 + 80*pls, 65 + j*30);
+                        j++;
+                        g.drawString(Integer.toString(stdTable.getTotal()), 95 + 80*pls, 65 + j*30);
+                        j++;
+
+                        ++pls;
+                    }
                 }
             }
 
             public void update(Graphics g){
+                g.clearRect (0, 0, getWidth(), getHeight());
                 paint(g);
             }
 

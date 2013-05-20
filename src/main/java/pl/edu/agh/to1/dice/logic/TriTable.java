@@ -10,9 +10,9 @@ public class TriTable extends Table {
 
     public TriTable() {
         super(null);
-        subTables.add(StdSubTable.getTable(1));
-        subTables.add(StdSubTable.getTable(2));
-        subTables.add(StdSubTable.getTable(3));
+        //subTables.add(StdSubTable.getTable(1));
+        //subTables.add(StdSubTable.getTable(2));
+        //subTables.add(StdSubTable.getTable(3));
     }
 
     int getLines() {

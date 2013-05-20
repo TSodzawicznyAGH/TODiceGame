@@ -7,6 +7,10 @@ public abstract class DiceCombination implements CommandHandler {
     protected int points = -1;
     protected final String figureName;
 
+    protected DiceCombination(String figureName) {
+        this.figureName = figureName;
+    }
+
     protected DiceSet parseCommand(Command command) {
         FigureCommand figureCommand = null;
         try {
@@ -19,10 +23,6 @@ public abstract class DiceCombination implements CommandHandler {
             return  figureCommand.getDiceSet();
         }
         return null;
-    }
-
-    protected DiceCombination(String figureName) {
-        this.figureName = figureName;
     }
 
     public boolean isSet() {
