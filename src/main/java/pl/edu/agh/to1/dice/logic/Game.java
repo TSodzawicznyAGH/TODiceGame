@@ -44,6 +44,12 @@ public class Game implements CommandHandler{
         return playerOrder.size();
     }
 
+    private void terminateGameControllers() {
+        for (GameOutputController controller : gameOutputControllerMap.values()) {
+            controller.terminate();
+        }
+    }
+
     private void initIOControllers() {
         List<Command> allCommands = gameState.getTable().getCommandList();
         for (IOController ioController : ioControllerMap.values()) {
@@ -128,6 +134,12 @@ public class Game implements CommandHandler{
                 }
             }
         }
+        try {
+            Thread.sleep(2500);
+        } catch (InterruptedException e) {
+            // exit anyway
+        }
+        terminateGameControllers();
         return winners;
     }
 
