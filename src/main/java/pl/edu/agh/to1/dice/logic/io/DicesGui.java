@@ -1,4 +1,4 @@
-package pl.edu.agh.to1.dice.logic;
+package pl.edu.agh.to1.dice.logic.io;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,6 +19,7 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 
+import pl.edu.agh.to1.dice.logic.*;
 import pl.edu.agh.to1.dice.logic.commands.*;
 import pl.edu.agh.to1.dice.logic.figures.DiceCombination;
 import pl.edu.agh.to1.dice.logic.io.GameOutputController;
