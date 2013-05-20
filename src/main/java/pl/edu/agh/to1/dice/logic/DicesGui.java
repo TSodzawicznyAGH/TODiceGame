@@ -361,7 +361,13 @@ public class DicesGui extends JFrame implements IOController, GameOutputControll
 
     @Override
     public void terminate() {
-        //To change body of implemented methods use File | Settings | File Templates.
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                setVisible(false);
+                dispose();
+            }
+        });
     }
 
 }

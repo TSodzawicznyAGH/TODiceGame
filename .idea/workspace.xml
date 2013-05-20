@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e98ad5a6-d1a0-4786-a84f-5e17c624a034" name="Default" comment="">
+    <list default="true" id="e98ad5a6-d1a0-4786-a84f-5e17c624a034" name="Default" comment="poprawione potrójne kości&#10;game starter uruchamia GUI w przypadku zwyklych, stdin/out w przypadku potrojnych">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dice-game.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369022580435" ignored="false" />
-    <file path="/DicesGui.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369022402317" ignored="false" />
+    <file path="/Dummy.txt" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369045888961" ignored="false" />
+    <file path="/DicesGui.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369045413550" ignored="false" />
     <file path="/Table.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369020855365" ignored="false" />
     <file path="/StdTable.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369042841645" ignored="false" />
     <file path="/DiceCombination.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369017700197" ignored="false" />
     <file path="/TriTable.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369044361258" ignored="false" />
-    <file path="/GameStarter.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369044250179" ignored="false" />
+    <file path="/GameStarter.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369045795773" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,23 +95,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameStarter.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameStarter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="7" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.0">
+            <state line="27" column="38" selection-start="900" selection-end="900" vertical-scroll-proportion="0.799591">
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TriTable.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="18" selection-start="755" selection-end="762" vertical-scroll-proportion="0.27091634">
-              <folding>
-                <element signature="e#786#795#0" expanded="true" />
+                <element signature="e#468#476#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,11 +110,13 @@
       <file leaf-file-name="DicesGui.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="243" column="35" selection-start="7802" selection-end="7802" vertical-scroll-proportion="0.0">
+            <state line="361" column="4" selection-start="11619" selection-end="11619" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1022#1039#0" expanded="true" />
                 <element signature="e#1219#1227#0" expanded="true" />
+                <element signature="e#11694#11850#0" expanded="true" />
+                <element signature="e#11839#11840#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,10 +165,10 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/figures/DiceCombination.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Table.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java" />
       </list>
     </option>
   </component>
@@ -586,12 +577,16 @@
       <created>1369022594604</created>
       <updated>1369022594604</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="poprawione potrójne kości&#10;game starter uruchamia GUI w przypadku zwyklych, stdin/out w przypadku potrojnych">
+      <created>1369044788455</created>
+      <updated>1369044788455</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="978" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -612,7 +607,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2350081" sideWeight="0.64468867" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35531136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35531136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -663,7 +658,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="wyswietlanie bonusow i wynikow" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawione potrójne kości&#10;game starter uruchamia GUI w przypadku zwyklych, stdin/out w przypadku potrojnych" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -681,6 +676,7 @@
     <MESSAGE value="super partia kosci2 :)" />
     <MESSAGE value="super partia kosci3 :)" />
     <MESSAGE value="wyswietlanie bonusow i wynikow" />
+    <MESSAGE value="poprawione potrójne kości&#10;game starter uruchamia GUI w przypadku zwyklych, stdin/out w przypadku potrojnych" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -769,13 +765,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="243" column="35" selection-start="7802" selection-end="7802" vertical-scroll-proportion="0.0">
+        <state line="35" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1022#1039#0" expanded="true" />
-            <element signature="e#1219#1227#0" expanded="true" />
+            <element signature="e#786#795#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -789,27 +790,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="7" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.0">
+        <state line="361" column="4" selection-start="11619" selection-end="11619" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1022#1039#0" expanded="true" />
+            <element signature="e#1219#1227#0" expanded="true" />
+            <element signature="e#11694#11850#0" expanded="true" />
+            <element signature="e#11839#11840#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Table.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="18" selection-start="755" selection-end="762" vertical-scroll-proportion="0.27091634">
+        <state line="27" column="38" selection-start="900" selection-end="900" vertical-scroll-proportion="0.799591">
           <folding>
-            <element signature="e#786#795#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#468#476#0" expanded="true" />
           </folding>
         </state>
       </provider>

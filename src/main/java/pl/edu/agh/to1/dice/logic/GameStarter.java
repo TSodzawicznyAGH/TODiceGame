@@ -7,10 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.*;
 
-import pl.edu.agh.to1.dice.logic.io.GameOutputController;
-import pl.edu.agh.to1.dice.logic.io.IOController;
-import pl.edu.agh.to1.dice.logic.io.StdGameOutputController;
-import pl.edu.agh.to1.dice.logic.io.StdIOController;
+import pl.edu.agh.to1.dice.logic.io.*;
 
 public class GameStarter {
 
@@ -27,7 +24,7 @@ public class GameStarter {
         boolean useGUI = true;
 
         System.out.println("Dzień dobry!");
-        System.out.print("Chcesz zagrac w [z]wykle czy po[t]rojne kosci?");
+        System.out.print("Chcesz zagrac w [z]wykle (GUI) czy po[t]rojne (konsola) kosci?");
         String kosci = new String("z");
         try {
             kosci = bReader.readLine();
@@ -163,6 +160,7 @@ public class GameStarter {
             }
 
         }
+        System.exit(0);
     }
 
     private static class RunGui extends Thread{
