@@ -110,6 +110,10 @@ public class StdTable extends Table {
     }
 
     public static Table getTable() {
+        return getTable(1);
+    }
+
+    public static Table getTable(int multiplier) {
         List<DiceCombination> list = new ArrayList<DiceCombination>();
 
         for (int i = 1; i <=6; ++i) {
@@ -125,6 +129,6 @@ public class StdTable extends Table {
         list.add(new DiceSZCombination());
 
         List<DiceCombination> collections = Collections.unmodifiableList(list);
-        return new StdTable(collections, diceGeneralCombination);
+        return new StdTable(collections, diceGeneralCombination, multiplier);
     }
 }

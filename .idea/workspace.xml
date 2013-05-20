@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e98ad5a6-d1a0-4786-a84f-5e17c624a034" name="Default" comment="wyswietlanie bonusow i wynikow">
-      <change type="DELETED" beforePath="F:\to\TODiceGame\src\main\java\pl\edu\agh\to1\dice\logic\StdSubTable.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/figures/DiceCombination.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/figures/DiceCombination.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java" />
+    <list default="true" id="e98ad5a6-d1a0-4786-a84f-5e17c624a034" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Table.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Table.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dice-game.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369022504517" ignored="false" />
+    <file path="/Dummy.txt" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369022580435" ignored="false" />
     <file path="/DicesGui.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369022402317" ignored="false" />
     <file path="/Table.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369020855365" ignored="false" />
-    <file path="/StdTable.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369022572838" ignored="false" />
+    <file path="/StdTable.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369042841645" ignored="false" />
     <file path="/DiceCombination.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369017700197" ignored="false" />
+    <file path="/TriTable.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369044361258" ignored="false" />
+    <file path="/GameStarter.java" changelist="e98ad5a6-d1a0-4786-a84f-5e17c624a034" time="1369044250179" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,18 +79,40 @@
       <file leaf-file-name="Table.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="35" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.0">
+            <state line="35" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StdTable.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="StdTable.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="23" selection-start="3253" selection-end="3253" vertical-scroll-proportion="1.1015936">
+            <state line="112" column="27" selection-start="3318" selection-end="3318" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#3341#3358#0" expanded="true" />
+                <element signature="e#3427#3444#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameStarter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="7" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TriTable.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="18" selection-start="755" selection-end="762" vertical-scroll-proportion="0.27091634">
+              <folding>
+                <element signature="e#786#795#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,6 +157,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -153,10 +173,11 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Bot.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/figures/DiceCombination.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Table.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/DicesGui.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java" />
       </list>
     </option>
   </component>
@@ -561,14 +582,18 @@
       <created>1369006962812</created>
       <updated>1369006962812</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="wyswietlanie bonusow i wynikow">
+      <created>1369022594604</created>
+      <updated>1369022594604</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="978" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -578,7 +603,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844934" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -587,7 +612,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2350081" sideWeight="0.64468867" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35531136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35531136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -638,7 +663,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="super partia kosci3 :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="wyswietlanie bonusow i wynikow" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -655,6 +680,7 @@
     <MESSAGE value="super partia kosci :)" />
     <MESSAGE value="super partia kosci2 :)" />
     <MESSAGE value="super partia kosci3 :)" />
+    <MESSAGE value="wyswietlanie bonusow i wynikow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -713,20 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1139" selection-end="1139" vertical-scroll-proportion="0.8354701">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="10" selection-start="402" selection-end="402" vertical-scroll-proportion="0.37250996">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="107" column="8" selection-start="3583" selection-end="3583" vertical-scroll-proportion="0.0">
@@ -768,18 +780,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="27" selection-start="3318" selection-end="3318" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#3427#3444#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/GameStarter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="7" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="35" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.0">
+        <state line="35" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/StdTable.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/agh/to1/dice/logic/TriTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="23" selection-start="3253" selection-end="3253" vertical-scroll-proportion="1.1015936">
+        <state line="29" column="18" selection-start="755" selection-end="762" vertical-scroll-proportion="0.27091634">
           <folding>
-            <element signature="e#3341#3358#0" expanded="true" />
+            <element signature="e#786#795#0" expanded="true" />
           </folding>
         </state>
       </provider>
